@@ -1,19 +1,30 @@
+/*
+    Beers --> 3 par ligne 
+*/
+
 .wrapper {
-    @apply flex flex-wrap p-4;
+    @apply flex flex-wrap justify-evenly px-8 -mt-16;
 }
 
 .container {
-    @apply flex flex-col mx-1 p-4 rounded-lg bg-neutral-50 border border-neutral-400;
+    @apply flex justify-evenly w-72 h-28 mb-11 pt-4 bg-white rounded-md cursor-pointer;
+    @apply last:mb-32;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
 }
 
-.flexRow {
-    @apply flex justify-between;
+.infoContainer {
+    @apply flex flex-col;
 }
 
-.title {
-    @apply font-bold text-lg;
+.infoContainer h2 {
+    @apply font-bold text-base text-dark-green;
 }
 
-.info {
-    @apply font-light text-sm;
+.type {
+    @apply font-light text-sm text-light-grey;
+}
+
+.dataContainer {
+    @apply px-5 py-2 first:mr-3;
+    @apply bg-very-light-grey rounded-[90px] font-light text-red text-xs;
 }

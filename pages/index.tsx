@@ -1,15 +1,13 @@
 import React from 'react';
-import Banner from '../components/banner';
-import Filters from '../components/filters';
 import Beers from '../components/beers';
+import Layout from '../components/layout';
+import { MENU_PAGE } from '../lib/constants';
 
 const Home = () => {
     return (
-        <div className='flex flex-col'>
-            <Banner />
-            <Filters />
+        <Layout title='La Carte' activePage={MENU_PAGE}>
             <Beers />
-        </div>
+        </Layout>
     );
 };
 

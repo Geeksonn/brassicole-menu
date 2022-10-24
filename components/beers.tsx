@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 import css from '../styles/beers.module.css';
@@ -13,13 +14,17 @@ type Props = {
 const Beer: React.FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={css.container}>
-            <div className={css.flexRow}>
-                <h1 className={css.title}>{props.name}</h1>
-                <p className={css.info}>
-                    {props.degree} % - {props.ibu} IBU
-                </p>
+            <div className='-mt-8'>
+                <Image src='/beer_cropped.png' width='28' height='114' />
             </div>
-            <div className={css.description}>{props.description}</div>
+            <div className={css.infoContainer}>
+                <h2>{props.name}</h2>
+                <p className={css.type}>{props.type}</p>
+                <div className='flex mt-4'>
+                    <div className={css.dataContainer}>{`${props.degree} %`}</div>
+                    <div className={css.dataContainer}>{`IBU ${props.ibu}`}</div>
+                </div>
+            </div>
         </div>
     );
 };

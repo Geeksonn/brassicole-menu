@@ -1,8 +1,0 @@
-.filter {
-    @apply px-4 py-1 rounded-xl bg-neutral-400 text-neutral-50 font-light text-center;
-    @apply mt-3 mx-3 cursor-pointer;
-}
-
-.filters {
-    @apply mx-auto flex flex-wrap;
-}
