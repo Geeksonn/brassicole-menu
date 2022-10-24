@@ -13,6 +13,7 @@ type Edition = {
 type Beers = {
     _id: string;
     name: string;
+    type: string;
     degree: number;
     ibu: number;
     image: string;

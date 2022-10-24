@@ -3,6 +3,7 @@ query ListItems ($query: ItemQueryInput, $sort: ItemSortByInput) {
     items(query: $query, sortBy: $sort) {
         _id
         name
+        type
         degree
         ibu
         image
@@ -51,7 +52,7 @@ query ListQuestions($query: QuestionQueryInput, $sort: QuestionSortByInput) {
 
 const GET_EDITION = `
 query GetEdition ($query: EditionQueryInput) {
-    editions(query: $query) {
+    edition(query: $query) {
         _id
         active
         date {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { MENU_PAGE, ROUTES_PAGE, CHOICE_PAGE } from '../lib/constants';
+import { MENU_PAGE, ROUTES_PAGE, CHOICE_PAGE } from '@lib/constants';
 
 type LayoutProps = {
     title: string;
