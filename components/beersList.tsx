@@ -15,15 +15,17 @@ type BeerInfo = {
 
 type BeerCardProps = {
     beer: BeerInfo;
+    clickHandler: any; // TODO 'any'
 };
 
 type BeersListProps = {
     beers: [Beers] | undefined;
+    clickHandler: any; // TODO 'any'
 };
 
-const Beer: React.FunctionComponent<BeerCardProps> = ({ beer }: BeerCardProps) => {
+const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: BeerCardProps) => {
     return (
-        <div className={css.container}>
+        <div className={css.container} onClick={clickHandler}>
             <div className='-mt-8'>
                 <Image src='/beer_cropped.png' width='28' height='114' />
             </div>
@@ -39,19 +41,19 @@ const Beer: React.FunctionComponent<BeerCardProps> = ({ beer }: BeerCardProps) =
     );
 };
 
-const BeersList: React.FunctionComponent<BeersListProps> = ({ beers }: BeersListProps) => {
+const BeersList: React.FunctionComponent<BeersListProps> = ({ beers, clickHandler }: BeersListProps) => {
     return (
         <div className={css.wrapper}>
             {beers ? (
                 beers.map((beer) => {
                     const beerInfo: BeerInfo = {
-                        name: beer.name,
-                        degree: beer.degree,
-                        ibu: beer.ibu,
-                        type: beer.type,
-                        description: beer.description,
+                        name: beer.name || '',
+                        degree: beer.degree || 0,
+                        ibu: beer.ibu || 0,
+                        type: beer.type || '',
+                        description: beer.description || '',
                     };
-                    return <Beer key={beer._id} beer={beerInfo} />;
+                    return <Beer key={beer._id} beer={beerInfo} clickHandler={() => clickHandler(beer)} />;
                 })
             ) : (
                 <p>No beers ...</p>

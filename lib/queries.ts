@@ -4,6 +4,7 @@ query ListItems ($query: ItemQueryInput, $sort: ItemSortByInput) {
         _id
         name
         type
+        brewery
         degree
         ibu
         image

@@ -20,11 +20,62 @@
     @apply font-bold text-base text-dark-green;
 }
 
+.type, .detailType {
+    @apply font-light text-light-grey;
+}
+
 .type {
-    @apply font-light text-sm text-light-grey;
+    @apply text-sm;
+}
+
+.detailType {
+    @apply mt-1 text-lg;
+}
+
+.dataContainer, .detailDataContainer {
+    @apply px-5 py-2 first:mr-3;
+    @apply bg-very-light-grey rounded-[90px] font-light text-red;
 }
 
 .dataContainer {
-    @apply px-5 py-2 first:mr-3;
-    @apply bg-very-light-grey rounded-[90px] font-light text-red text-xs;
+    @apply text-xs;
+}
+
+.detailDataContainer {
+    @apply text-sm;
+}
+
+
+/* 
+    BEER DETAILS 
+*/
+
+.detailWrapper {
+    @apply flex flex-col;
+}
+
+.backBtn {
+    @apply flex -mt-10 ml-14 px-6 py-4 rounded-[100px] bg-dark-green cursor-pointer max-w-xs;
+    @apply font-normal tracking-widest text-white uppercase;
+}
+
+.backBtn i {
+    @apply mr-7;
+}
+
+.infoWrapper {
+    @apply flex mx-11 mt-20 mb-52 pl-16 pr-11 rounded-md bg-white;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.beerInfoImage {
+    @apply -mt-12 mr-20;
+}
+
+.beerInfoContent {
+    @apply flex flex-col grow py-16;
+}
+
+.beerInfoContent h1 {
+    @apply font-bold text-3xl text-dark-green;
 }

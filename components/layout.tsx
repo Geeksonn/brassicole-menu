@@ -35,6 +35,8 @@ const FooterButton = React.forwardRef<HTMLAnchorElement, FooterButtonProps>(
     }
 );
 
+FooterButton.displayName = 'FooterButton';
+
 const Layout = ({ title, activePage, children }: LayoutProps) => {
     return (
         <div className='flex flex-col'>

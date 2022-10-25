@@ -11,16 +11,17 @@ type Edition = {
 }
 
 type Beers = {
-    _id: string;
-    name: string;
-    type: string;
-    degree: number;
-    ibu: number;
-    image: string;
-    price: number; 
-    currency: string;
-    description: string;
-    edition: string;
+    _id?: string;
+    name?: string;
+    type?: string;
+    brewery?: string;
+    degree?: number;
+    ibu?: number;
+    image?: string;
+    price?: number; 
+    currency?: string;
+    description?: string;
+    edition?: string;
 }
 
 type RoutesElement = {
