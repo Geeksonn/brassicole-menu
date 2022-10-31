@@ -19,7 +19,7 @@ type BeerCardProps = {
 };
 
 type BeersListProps = {
-    beers: [Beers] | undefined;
+    beers: Beers[];
     clickHandler: any; // TODO 'any'
 };
 

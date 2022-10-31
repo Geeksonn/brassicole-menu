@@ -7,10 +7,7 @@ const app = new Realm.App({ id: APP_ID });
 
 const generateHeaders = async () => {
     const credentials = Realm.Credentials.apiKey(process.env.NEXT_PUBLIC_API_KEY || '');
-
-    if (!app.currentUser) {
-        await app.logIn(credentials);
-    }
+    await app.logIn(credentials);
 
     return {
         Authorization: 'Bearer ' + app.currentUser?.accessToken,

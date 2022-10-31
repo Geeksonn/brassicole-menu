@@ -10,7 +10,6 @@ module.exports = {
                 'dark-green': '#004335',
                 'pink': '#EEA4C8',
                 'orange': '#F6A000',
-                'light-red': '#F6A000',
                 'beige': '#FAF9FA',
                 'light-grey': '#909090',
                 'very-light-grey': '#F8F8F8',
@@ -20,7 +19,11 @@ module.exports = {
         },
         fontFamily: {
             body: ['Inter', 'sans-serif'],
+            title: ['Inter', 'sans-serif'],
         },
+        boxShadow: {
+            'default': '5px 5px 30px rgba(0, 0, 0, 0.1)',
+          }
     },
     plugins: [],
 };

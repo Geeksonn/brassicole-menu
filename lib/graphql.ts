@@ -37,7 +37,7 @@ const getBeers = async (edition: type.Edition) => {
     }
 };
 
-const getRoutes =async (edition:type.Edition) => {
+const getRoutes = async (edition: type.Edition) => {
     const options = await generateOptions(queries.LIST_ROUTES, { query: { edition: edition.name } });
     const response = await fetch(REALM_GRAPHQL_ENDPOINT, options);
     const result = await response.json();
@@ -47,10 +47,15 @@ const getRoutes =async (edition:type.Edition) => {
     } else {
         return result.data.routes;
     }
-}
+};
 
-const getQuestions =async (edition:type.Edition) => {
-    const options = await generateOptions(queries.LIST_QUESTIONS, { query: { edition: edition.name } });
+const getQuestions = async (edition: type.Edition) => {
+    const variables = {
+        query: { edition: edition.name },
+        sort: 'QID_ASC',
+    };
+
+    const options = await generateOptions(queries.LIST_QUESTIONS, variables);
     const response = await fetch(REALM_GRAPHQL_ENDPOINT, options);
     const result = await response.json();
 
@@ -59,6 +64,6 @@ const getQuestions =async (edition:type.Edition) => {
     } else {
         return result.data.questions;
     }
-}
+};
 
 export { getActiveEdition, getBeers, getRoutes, getQuestions };

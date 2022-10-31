@@ -55,7 +55,7 @@ const Layout = ({ title, activePage, children }: LayoutProps) => {
                     <FooterButton icon='icon_routes' text='Nos routes' active={activePage === ROUTES_PAGE} />
                 </Link>
                 <Link href='/choice' passHref>
-                    <FooterButton icon='icon_choice' text='La carte' active={activePage === CHOICE_PAGE} />
+                    <FooterButton icon='icon_choice' text='Arbre de choix' active={activePage === CHOICE_PAGE} />
                 </Link>
             </footer>
         </div>

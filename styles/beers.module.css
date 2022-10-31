@@ -8,8 +8,7 @@
 
 .container {
     @apply flex justify-evenly w-72 h-28 mb-11 pt-4 bg-white rounded-md cursor-pointer;
-    @apply last:mb-32;
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+    @apply last:mb-32 shadow-default;
 }
 
 .infoContainer {
@@ -64,8 +63,7 @@
 }
 
 .infoWrapper {
-    @apply flex mx-11 mt-20 mb-52 pl-16 pr-11 rounded-md bg-white;
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+    @apply flex mx-11 mt-20 mb-52 pl-16 pr-11 rounded-md bg-white shadow-default;
 }
 
 .beerInfoImage {
