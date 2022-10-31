@@ -63,11 +63,13 @@
 }
 
 .infoWrapper {
-    @apply flex mx-11 mt-20 mb-52 pl-16 pr-11 rounded-md bg-white shadow-default;
+    @apply flex justify-evenly mx-6 mt-20 mb-52 px-4 /*pl-16 pr-11 */ rounded-md bg-white shadow-default;
+    @apply lg:px-12 lg:mx-11;
 }
 
 .beerInfoImage {
-    @apply -mt-12 mr-20;
+    @apply -mt-12 mr-5;
+    @apply lg:mr-16;
 }
 
 .beerInfoContent {

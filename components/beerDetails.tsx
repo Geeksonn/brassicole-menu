@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Image from 'next/image';
-
 import { Beers } from '@lib/types';
 
 import BeerLayout from './beerLayout';
