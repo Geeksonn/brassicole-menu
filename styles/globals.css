@@ -15,7 +15,8 @@ header {
 }
 
 header p {
-    @apply pt-3 text-white font-bold text-6xl;
+    @apply pt-3 text-white font-bold text-4xl;
+    @apply lg:text-6xl;
 }
 
 main {

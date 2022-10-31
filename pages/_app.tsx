@@ -21,28 +21,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, []);
 
     const getData = async () => {
-        try {
-            const activeEdition: type.Edition = await lib.getActiveEdition();
-            const beers: [type.Beers] = await lib.getBeers(activeEdition);
-            const routes: [type.Routes] = await lib.getRoutes(activeEdition);
-            const questions: [type.Questions] = await lib.getQuestions(activeEdition);
+        // TODO Error Management
+        const activeEdition: type.Edition = await lib.getActiveEdition();
+        const beers: [type.Beers] = await lib.getBeers(activeEdition);
+        const routes: [type.Routes] = await lib.getRoutes(activeEdition);
+        const questions: [type.Questions] = await lib.getQuestions(activeEdition);
 
-            /*
-            setData({
-                activeEdition: activeEdition.name,
-                beers: beers,
-                routes: routes,
-                questions: questions,
-            });*/
-            saveData({
-                activeEdition: activeEdition.name,
-                beers: beers,
-                routes: routes,
-                questions: questions,
-            });
-        } catch (error) {
-            console.error(error); // TODO
-        }
+        saveData({
+            activeEdition: activeEdition.name,
+            beers: beers,
+            routes: routes,
+            questions: questions,
+        });
     };
 
     const saveData = (data: Data) => {
