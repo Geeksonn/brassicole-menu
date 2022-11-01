@@ -19,7 +19,7 @@ module.exports = {
         },
         fontFamily: {
             body: ['Inter', 'sans-serif'],
-            title: ['Inter', 'sans-serif'],
+            title: ['new-spirit', 'serif'],
         },
         boxShadow: {
             'default': '5px 5px 30px rgba(0, 0, 0, 0.1)',

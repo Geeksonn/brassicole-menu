@@ -15,7 +15,7 @@
 }
 
 .beerInfo h3 {
-    @apply mt-3 font-medium text-dark-green;
+    @apply font-title mt-3 font-medium text-dark-green;
 }
 
 .beerType {
