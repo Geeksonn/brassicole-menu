@@ -15,10 +15,11 @@ type BeerLayoutProps = {
 
 const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
     const { beer, imgSrc, imgW, imgH } = props;
+    console.log('desc: ', beer.description);
     return (
         <div className={css.infoWrapper}>
             <div className={css.beerInfoImage}>
-                <Image src={imgSrc} width={imgW} height={imgH} />
+                <Image src={process.env.NEXT_PUBLIC_IMG_CDN + imgSrc + '/'} width={imgW} height={imgH} />
             </div>
             <div className={css.beerInfoContent}>
                 <h1>{beer.name}</h1>
@@ -31,7 +32,7 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
                     <i className='mr-3'>{breweryIcon}</i>
                     <p className='text-dark-green'>{beer.brewery}</p>
                 </div>
-                <p className='my-6 font-light'>{beer.description}</p>
+                <p className='my-6 font-light whitespace-pre-line'>{beer.description}</p>
             </div>
         </div>
     );

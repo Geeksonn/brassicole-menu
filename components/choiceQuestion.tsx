@@ -27,7 +27,7 @@ const ChoiceQuestion: React.FunctionComponent<ChoiceQuestionProps> = ({ question
                     </div>
                 </div>
             ) : (
-                <BeerLayout beer={selectedBeer} imgSrc='/beer_cropped.png' imgW={71} imgH={289} />
+                <BeerLayout beer={selectedBeer} imgSrc={selectedBeer.image} imgW={71} imgH={289} />
             )}
         </>
     );

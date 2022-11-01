@@ -31,6 +31,10 @@
     @apply flex items-center -mt-6 pr-5 py-1 rounded-full;
 }
 
+.routeNav {
+    @apply flex items-center -mt-6 px-2 py-1 rounded-full cursor-pointer;
+}
+
 .routeNumber {
     @apply pl-1 pr-5 font-title font-bold text-5xl text-white/30;
 }

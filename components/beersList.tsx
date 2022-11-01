@@ -7,6 +7,7 @@ import css from '@styles/beers.module.css';
 
 type BeerInfo = {
     name: string;
+    image: string;
     degree: number;
     ibu: number;
     type: string;
@@ -27,7 +28,7 @@ const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: Be
     return (
         <div className={css.container} onClick={clickHandler}>
             <div className='-mt-8'>
-                <Image src='/beer_cropped.png' width='28' height='114' />
+                <Image src={process.env.NEXT_PUBLIC_IMG_CDN + beer.image + '/'} width='28' height='114' />
             </div>
             <div className={css.infoContainer}>
                 <h2>{beer.name}</h2>
@@ -47,11 +48,12 @@ const BeersList: React.FunctionComponent<BeersListProps> = ({ beers, clickHandle
             {beers ? (
                 beers.map((beer) => {
                     const beerInfo: BeerInfo = {
-                        name: beer.name || '',
-                        degree: beer.degree || 0,
-                        ibu: beer.ibu || 0,
-                        type: beer.type || '',
-                        description: beer.description || '',
+                        name: beer.name,
+                        image: beer.image,
+                        degree: beer.degree,
+                        ibu: beer.ibu,
+                        type: beer.type,
+                        description: beer.description,
                     };
                     return <Beer key={beer._id} beer={beerInfo} clickHandler={() => clickHandler(beer)} />;
                 })
