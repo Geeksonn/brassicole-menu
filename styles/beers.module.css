@@ -54,8 +54,9 @@
 }
 
 .backBtn {
-    @apply flex -mt-10 ml-14 px-6 py-4 rounded-[100px] bg-dark-green cursor-pointer max-w-xs;
+    @apply flex -mt-10 mx-auto px-6 py-4 rounded-[100px] bg-dark-green cursor-pointer max-w-xs;
     @apply font-normal tracking-widest text-white uppercase;
+    @apply lg:ml-14;
 }
 
 .backBtn i {
@@ -63,17 +64,17 @@
 }
 
 .infoWrapper {
-    @apply flex justify-evenly mx-6 mt-20 mb-52 px-4 /*pl-16 pr-11 */ rounded-md bg-white shadow-default;
+    @apply flex justify-evenly mx-6 mt-20 mb-52 px-4 rounded-md bg-white shadow-default;
     @apply lg:px-12 lg:mx-11;
 }
 
 .beerInfoImage {
-    @apply -mt-12 mr-5;
-    @apply lg:mr-16;
+    @apply -mt-12 pl-6 pr-10;
+    @apply lg:pl-16 lg:pr-20;
 }
 
 .beerInfoContent {
-    @apply flex flex-col grow py-16;
+    @apply flex flex-col grow py-4 lg:py-16;
 }
 
 .beerInfoContent h1 {
