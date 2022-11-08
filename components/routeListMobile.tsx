@@ -22,13 +22,17 @@ const RouteListMobile: React.FunctionComponent<RouteListMobileProps> = ({ routes
 
         return (
             <div className='flex justify-evenly'>
-                <i className={arrowClass} onClick={() => setDisplayFirstRoute(!displayFirstRoute)}>
-                    {leftArrowIcon}
-                </i>
+                {!displayFirstRoute ? (
+                    <i className={arrowClass} onClick={() => setDisplayFirstRoute(true)}>
+                        {leftArrowIcon}
+                    </i>
+                ) : null}
                 <RouteTitle accent={accent} number={routeNr} title={route.name} />
-                <i className={arrowClass} onClick={() => setDisplayFirstRoute(!displayFirstRoute)}>
-                    {rightArrowIcon}
-                </i>
+                {displayFirstRoute ? (
+                    <i className={arrowClass} onClick={() => setDisplayFirstRoute(false)}>
+                        {rightArrowIcon}
+                    </i>
+                ) : null}
             </div>
         );
     };
