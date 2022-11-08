@@ -1,12 +1,37 @@
 .wrapper {
-    @apply flex flex-col mt-12 mb-40 mx-4 p-8 rounded-lg bg-white shadow-default;
-    @apply lg:mx-12
+    @apply flex flex-col mx-4 lg:mx-12 mt-12 mb-40;
+}
+
+.choiceWrapper {
+    @apply flex flex-col p-8 rounded-lg bg-white shadow-default;
+}
+
+.choiceTitle {
+    @apply -mt-10 mb-6 mx-auto px-4 py-2 bg-dark-green rounded-xl;
+    @apply font-title font-semibold text-white;
+}
+
+.wrapperMargin {
+    @apply mx-4 lg:mx-12 mt-12 mb-40;
 }
 
 .buttonWrapper {
     @apply flex justify-evenly mt-14 mb-4;
 }
+
 .button {
     @apply px-9 py-2 rounded-full text-white text-lg;
     @apply lg:px-20 lg:py-4;
+}
+
+.progressCircle, .finalCircle {
+    @apply px-3 py-1 rounded-full text-white cursor-pointer;
+}
+
+.progressSpacer {
+    @apply w-4 lg:w-8 h-0 border-b-2 border-b-orange;
+}
+
+.progressWrapper {
+    @apply flex justify-start items-center mb-4;
 }

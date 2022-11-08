@@ -14,18 +14,47 @@ const Choice = () => {
     const { data } = React.useContext(GlobalState);
     const [currentQuestion, setCurrentQuestion] = React.useState<Questions>(defaultQuestion);
     const [selectedBeer, setSelectedBeer] = React.useState<Beers>(defaultBeer);
+    const [questionHistory, setQuestionHistory] = React.useState<number[]>([]);
 
     React.useEffect(() => {
-        const question = data.questions.length > 0 ? data.questions[0] : defaultQuestion;
-        setCurrentQuestion(question);
+        if (data.questions.length > 0) {
+            setQuestion(data.questions[0]);
+        }
     }, [JSON.stringify(data.questions)]);
+
+    const setQuestion = (question: Questions) => {
+        setCurrentQuestion(question);
+        setQuestionHistory([...questionHistory, question.qid]);
+    };
+
+    const resetQuestion = (index: number) => {
+        const question = data.questions.find((q) => q.qid === questionHistory[index]);
+
+        if (question) {
+            setCurrentQuestion(question);
+            setQuestionHistory(questionHistory.filter((qh, ind) => ind <= index));
+        } else {
+            console.error(
+                'Reset Question to ' + questionHistory[index] + ' (' + index + ') --> NOT FOUND !!',
+                data.questions
+            );
+            setCurrentQuestion(data.questions[0]);
+            setQuestionHistory([data.questions[0].qid]);
+        }
+        setSelectedBeer(defaultBeer);
+
+        console.log(
+            'Setting history to',
+            questionHistory.filter((qh, ind) => ind <= index)
+        );
+    };
 
     const handleClick = (option: number) => {
         const selectedOption = option === 1 ? currentQuestion.resultOption1 : currentQuestion.resultOption2;
         if (selectedOption.nextQuestion > 0) {
             let nextQuestion = data.questions.find((q) => q.qid === selectedOption.nextQuestion);
             if (nextQuestion) {
-                setCurrentQuestion(nextQuestion);
+                setQuestion(nextQuestion);
             }
         } else {
             const beer = data.beers.find((b) => b.name === selectedOption.selectedBeer);
@@ -35,10 +64,23 @@ const Choice = () => {
         }
     };
 
+    const progressClick = (index: number) => {
+        console.log('Clicking on ' + index + ' // history: ', questionHistory);
+        if (index < questionHistory.length) {
+            resetQuestion(index);
+        }
+    };
+
     return (
         <Layout title='Arbre de choix' activePage={CHOICE_PAGE}>
             {currentQuestion !== defaultQuestion ? (
-                <ChoiceQuestion question={currentQuestion} selectedBeer={selectedBeer} handleClick={handleClick} />
+                <ChoiceQuestion
+                    question={currentQuestion}
+                    selectedBeer={selectedBeer}
+                    progress={questionHistory.length}
+                    handleClick={handleClick}
+                    progressClick={progressClick}
+                />
             ) : (
                 <div>Loading ...</div>
             )}
