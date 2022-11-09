@@ -58,6 +58,7 @@ const RouteListMobile: React.FunctionComponent<RouteListMobileProps> = ({ routes
                     last={last}
                     name={beerObj?.name}
                     type={beerObj?.type}
+                    imageCard={beerObj?.imageCard}
                     degree={beerObj?.degree}
                     ibu={beerObj?.ibu}
                 />
