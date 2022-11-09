@@ -21,7 +21,7 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
 
     const beerImgJsx = () => {
         const imgPath = process.env.NEXT_PUBLIC_IMG_CDN + imgSrc + '/';
-        const imgClass = isMobile ? 'w-16' : '';
+        const imgClass = isMobile ? 'w-16' : 'w-32';
 
         return (
             <div className={css.beerInfoImage}>

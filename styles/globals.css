@@ -25,6 +25,10 @@ footer {
     @apply flex w-screen max-w-[1080px] h-28 z-10 py-5 fixed bottom-0 bg-white;
 }
 
+img {
+    @apply max-w-none;
+}
+
 .footerBtn {
     @apply w-1/3 flex justify-center cursor-pointer;
     @apply border-r last:border-r-0 border-dark-white;
