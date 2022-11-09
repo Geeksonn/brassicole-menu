@@ -20,9 +20,12 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
     const isMobile = useMediaQuery(MAX_WIDTH_MOB);
 
     const beerImgJsx = () => {
+        const imgPath = process.env.NEXT_PUBLIC_IMG_CDN + imgSrc + '/';
+        const imgClass = isMobile ? 'w-16' : '';
+
         return (
             <div className={css.beerInfoImage}>
-                <Image src={process.env.NEXT_PUBLIC_IMG_CDN + imgSrc + '/'} width={imgW} height={imgH} />
+                <img src={imgPath} className={imgClass} />
             </div>
         );
     };
