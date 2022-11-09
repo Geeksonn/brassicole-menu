@@ -36,6 +36,7 @@ const RouteList: React.FunctionComponent<RouteListProps> = ({ routes, beers }) =
                     last={last}
                     name={beerObj?.name}
                     type={beerObj?.type}
+                    imageCard={beerObj?.imageCard}
                     degree={beerObj?.degree}
                     ibu={beerObj?.ibu}
                 />

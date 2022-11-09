@@ -18,6 +18,7 @@ export type Beers = {
     degree: number;
     ibu: number;
     image: string;
+    imageCard: string;
     price: number;
     currency: string;
     description: string;

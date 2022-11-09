@@ -6,6 +6,7 @@ const defaultBeer = {
     degree: 0,
     ibu: 0,
     image: '',
+    imageCard: '',
     price: 0,
     currency: '',
     description: '',

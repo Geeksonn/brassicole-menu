@@ -12,6 +12,7 @@ type RouteCardProps = {
     last?: boolean;
     name?: string;
     type?: string;
+    imageCard?: string;
     degree?: number;
     ibu?: number;
 };
@@ -20,6 +21,7 @@ const RouteCard: React.FunctionComponent<RouteCardProps> = (props: RouteCardProp
     const ellips = props.accent === ACCENT_PINK ? roseEllips : yellowEllips;
     const line = props.accent === ACCENT_PINK ? roseLine : yellowLine;
     const wrapperClass = `flex ${(props.first ? `mt-7` : ``)}`;
+    const imgSrc = process.env.NEXT_PUBLIC_IMG_CDN + (props.imageCard ? props.imageCard : '') + '/';
 
     return (
         <div className={wrapperClass}>
@@ -29,7 +31,7 @@ const RouteCard: React.FunctionComponent<RouteCardProps> = (props: RouteCardProp
             </div>
             <div className={css.routeCard}>
                 <div className='mx-3'>
-                    <Image src='/beer_cropped.png' width='19px' height='76px' />
+                    <Image src={imgSrc} width='19px' height='76px' />
                 </div>
                 <div className={css.beerInfo}>
                     <h3>{props.name}</h3>

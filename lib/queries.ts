@@ -8,6 +8,7 @@ query ListItems ($query: ItemQueryInput, $sort: ItemSortByInput) {
         degree
         ibu
         image
+        imageCard
         price
         currency
         description
