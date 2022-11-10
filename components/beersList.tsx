@@ -28,7 +28,6 @@ const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: Be
     return (
         <div className={css.container} onClick={clickHandler}>
             <div className='-mt-8'>
-                {/*<Image src={process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/'} width='28' height='114' />*/}
                 <img src={process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/'} className='w-8' />
             </div>
             <div className={css.infoContainer}>
