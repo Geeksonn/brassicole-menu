@@ -42,15 +42,10 @@ const Choice = () => {
             setQuestionHistory([data.questions[0].qid]);
         }
         setSelectedBeer(defaultBeer);
-
-        console.log(
-            'Setting history to',
-            questionHistory.filter((qh, ind) => ind <= index)
-        );
     };
 
     const handleClick = (option: number) => {
-        const selectedOption = option === 1 ? currentQuestion.resultOption1 : currentQuestion.resultOption2;
+        const selectedOption = currentQuestion.options[option];
         if (selectedOption.nextQuestion > 0) {
             let nextQuestion = data.questions.find((q) => q.qid === selectedOption.nextQuestion);
             if (nextQuestion) {

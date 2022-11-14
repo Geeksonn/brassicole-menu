@@ -28,15 +28,11 @@ const defaultQuestion = {
     qid: 0,
     question: '',
     option1: '',
-    resultOption1: {
+    options: [{
+        option: '',
         nextQuestion: 0,
         selectedBeer: '',
-    },
-    option2: '',
-    resultOption2: {
-        nextQuestion: 0,
-        selectedBeer: '',
-    },
+    }],
     edition: '',
 };
 

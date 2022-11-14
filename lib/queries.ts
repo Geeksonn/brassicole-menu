@@ -37,13 +37,8 @@ query ListQuestions($query: QuestionQueryInput, $sort: QuestionSortByInput) {
         _id
         qid
         question
-        option1
-        resultOption1 {
-            nextQuestion
-            selectedBeer
-        }
-        option2
-        resultOption2 {
+        options {
+            option
             nextQuestion
             selectedBeer
         }

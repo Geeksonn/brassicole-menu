@@ -37,7 +37,8 @@ export type Routes = {
     edition: string;
 };
 
-export type QuestionResult = {
+export type QuestionOption = {
+    option: string;
     nextQuestion: number;
     selectedBeer: string;
 };
@@ -46,9 +47,6 @@ export type Questions = {
     _id: string;
     qid: number;
     question: string;
-    option1: string;
-    resultOption1: QuestionResult;
-    option2: string;
-    resultOption2: QuestionResult;
+    options: QuestionOption[];
     edition: string;
 };
