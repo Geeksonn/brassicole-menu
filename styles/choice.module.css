@@ -16,7 +16,8 @@
 }
 
 .buttonWrapper {
-    @apply flex justify-evenly mt-14 mb-4;
+    @apply flex flex-col space-y-3 mt-14 mb-4;
+    @apply lg:flex-row lg:justify-evenly;
 }
 
 .button {
