@@ -35,7 +35,7 @@ img {
 }
 
 .footerText {
-    @apply pt-4 font-normal text-sm;
+    @apply pt-4 font-normal text-sm lg:text-lg;
 }
 
 .active {

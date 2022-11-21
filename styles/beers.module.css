@@ -3,20 +3,30 @@
 */
 
 .wrapper {
-    @apply flex flex-wrap justify-evenly px-8 -mt-16;
+    @apply flex flex-wrap justify-evenly px-8 -mt-8;
 }
 
 .container {
-    @apply flex justify-evenly w-72 h-28 mb-11 pt-4 bg-white rounded-md cursor-pointer;
+    @apply flex justify-evenly w-72 mb-11 py-4 bg-white rounded-md cursor-pointer;
     @apply last:mb-32 shadow-default;
+    @apply lg:w-96 lg:py-4 lg:mb-16 lg:mt-2;
+}
+
+.imgContainer {
+    @apply w-1/3 -mt-10;
+}
+
+.imgContainer img {
+    @apply mx-auto;
 }
 
 .infoContainer {
-    @apply flex flex-col;
+    @apply flex flex-col w-2/3;
 }
 
 .infoContainer h2 {
     @apply font-title font-bold text-base text-dark-green;
+    @apply lg:text-2xl;
 }
 
 .type, .detailType {
@@ -24,7 +34,7 @@
 }
 
 .type {
-    @apply text-sm;
+    @apply text-base;
 }
 
 .detailType {
@@ -37,7 +47,7 @@
 }
 
 .dataContainer {
-    @apply text-xs;
+    @apply text-sm;
 }
 
 .detailDataContainer {
@@ -50,7 +60,7 @@
 */
 
 .detailWrapper {
-    @apply flex flex-col;
+    @apply flex flex-col mx-4;
 }
 
 .backBtn {
@@ -65,7 +75,7 @@
 
 .infoWrapper {
     @apply flex justify-evenly mx-6 mt-20 mb-52 px-4 rounded-md bg-white shadow-default;
-    @apply lg:px-12 lg:mx-11;
+    @apply lg:px-12 lg:mx-16;
 }
 
 .beerInfoImage {

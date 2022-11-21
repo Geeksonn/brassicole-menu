@@ -25,10 +25,12 @@ type BeersListProps = {
 };
 
 const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: BeerCardProps) => {
+    const beerImgClass = ['Arsenal', 'Frambo', 'Witlab'].includes(beer.name) ? 'w-16' : 'w-10';
+    
     return (
         <div className={css.container} onClick={clickHandler}>
-            <div className='-mt-8'>
-                <img src={process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/'} className='w-8' />
+            <div className={css.imgContainer}>
+                <img src={process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/'} className={beerImgClass} />
             </div>
             <div className={css.infoContainer}>
                 <h2>{beer.name}</h2>
