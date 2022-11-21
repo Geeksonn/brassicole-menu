@@ -18,6 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     React.useEffect(() => {
         getData();
+        document.addEventListener('contextmenu', (e) => {
+              e.preventDefault();
+            });
     }, []);
 
     const getData = async () => {

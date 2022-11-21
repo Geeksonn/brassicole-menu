@@ -20,6 +20,10 @@
     @apply lg:flex-row lg:justify-evenly;
 }
 
+.buttonWrapper .button {
+    margin-top: 0px!important;
+}
+
 .button {
     @apply px-8 py-1 rounded-full text-white text-lg;
     @apply lg:px-20 lg:py-4;
