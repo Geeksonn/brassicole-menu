@@ -9,6 +9,7 @@
 .choiceTitle {
     @apply -mt-10 mb-6 mx-auto px-4 py-2 bg-dark-green rounded-xl;
     @apply font-title font-semibold text-white;
+    /*@apply -mx-6 lg:mx-0;*/
 }
 
 .wrapperMargin {
@@ -21,7 +22,7 @@
 }
 
 .buttonWrapper .button {
-    margin-top: 0px!important;
+    @apply lg:mt-0 !important;
 }
 
 .button {
@@ -31,12 +32,16 @@
 
 .progressCircle, .finalCircle {
     @apply px-3 py-1 rounded-full text-white cursor-pointer;
+    @apply lg:px-7 lg:py-5;
+    @apply last:border-4 last:border-dark-green;
 }
 
 .progressSpacer {
-    @apply w-4 lg:w-8 h-0 border-b-2 border-b-orange;
+    @apply w-4 h-0 border-b-2 border-b-orange;
+    @apply lg:w-14;
 }
 
 .progressWrapper {
     @apply flex justify-start items-center mb-4;
+    @apply lg:mb-12 lg:mt-12;
 }

@@ -26,7 +26,7 @@ const getActiveEdition = async (): Promise<type.Edition> => {
 };
 
 const getBeers = async (edition: type.Edition) => {
-    const options = await generateOptions(queries.LIST_ITEMS, { query: { edition: edition.name } });
+    const options = await generateOptions(queries.LIST_ITEMS, { query: { edition: edition.name }, sort: 'NAME_ASC' });
     const response = await fetch(REALM_GRAPHQL_ENDPOINT, options);
     const result = await response.json();
 

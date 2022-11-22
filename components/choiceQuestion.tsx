@@ -46,7 +46,8 @@ const ChoiceQuestion: React.FunctionComponent<ChoiceQuestionProps> = (props) => 
             {selectedBeer.name === '' ? (
                 <div className={`${css.choiceWrapper} `}>
                     <div className={css.choiceTitle}>
-                        Répondez au questionnaire pour découvrir la bière faite pour vous !
+                        {/*Répondez au questionnaire pour découvrir la bière faite pour vous !*/}
+                        Découvrez LA bière faite pour vous !
                     </div>
                     <div className='mx-auto text-lg'>{question.question}</div>
                     <ChoiceButtons options={question.options} handleClick={handleClick} />
