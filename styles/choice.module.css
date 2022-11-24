@@ -1,15 +1,22 @@
 .wrapper {
-    @apply flex flex-col mx-4 lg:mx-12 mt-12 mb-40;
+    @apply flex flex-col mx-4 mt-2 mb-40;
+    @apply lg:mx-12 lg:mt-12;
 }
 
 .choiceWrapper {
-    @apply flex flex-col p-8 rounded-lg bg-white shadow-default;
+    @apply flex flex-col p-8 mt-4 rounded-lg bg-white shadow-default;
+    @apply lg:mt-12;
 }
 
 .choiceTitle {
     @apply -mt-10 mb-6 mx-auto px-4 py-2 bg-dark-green rounded-xl;
-    @apply font-title font-semibold text-white;
-    /*@apply -mx-6 lg:mx-0;*/
+    @apply font-title font-semibold text-white text-xl;
+    @apply lg:text-3xl lg:px-12 lg:py-6 lg:-mt-16;
+}
+
+.question {
+    @apply mx-auto text-lg font-semibold;
+    @apply lg:text-2xl lg:my-10;
 }
 
 .wrapperMargin {
@@ -18,21 +25,18 @@
 
 .buttonWrapper {
     @apply flex flex-col space-y-3 mt-14 mb-4;
-    @apply lg:flex-row lg:justify-evenly;
-}
-
-.buttonWrapper .button {
-    @apply lg:mt-0 !important;
+    @apply lg:mx-20 lg:space-y-10;
+    /*@apply lg:flex-row lg:justify-evenly;*/
 }
 
 .button {
     @apply px-8 py-1 rounded-full text-white text-lg;
-    @apply lg:px-20 lg:py-4;
+    @apply lg:px-20 lg:py-8;
 }
 
 .progressCircle, .finalCircle {
     @apply px-3 py-1 rounded-full text-white cursor-pointer;
-    @apply lg:px-7 lg:py-5;
+    @apply lg:px-7 lg:py-5 lg:text-2xl;
     @apply last:border-4 last:border-dark-green;
 }
 
@@ -41,7 +45,20 @@
     @apply lg:w-14;
 }
 
+.progressWrapper, .icon {
+    @apply mb-4 lg:my-12;
+}
+
 .progressWrapper {
-    @apply flex justify-start items-center mb-4;
-    @apply lg:mb-12 lg:mt-12;
+    @apply flex justify-start items-center;
+}
+
+.resetIcon {
+    @apply flex items-center;
+    @apply lg:text-2xl
+}
+
+.resetIcon svg {
+    @apply h-6 mr-4 cursor-pointer;
+    @apply lg:h-8 lg:mr-6;
 }

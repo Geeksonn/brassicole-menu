@@ -1,6 +1,7 @@
 import React from 'react';
 
 import css from '@styles/choice.module.css';
+import { resetIcon } from './routeCardDecoration';
 
 type ChoiceProgressProps = {
     position: number;
@@ -17,9 +18,10 @@ type CircleProps = {
 
 const ProgressCircle: React.FunctionComponent<CircleProps> = (props) => {
     const { text, index, className, click } = props;
+
     return (
         <div className={`${css.progressCircle} ${className}`} onClick={() => click(index - 1)}>
-            {text}
+            {text === 'Recommencez' ? <span className={css.resetIcon}>{resetIcon} Recommencez</span> : text}
         </div>
     );
 };
@@ -54,8 +56,8 @@ const ChoiceProgress: React.FunctionComponent<ChoiceProgressProps> = (props) => 
             jsx.push(
                 <ProgressCircle
                     key={`circle_${position}`}
-                    text={'V'}
-                    index={position + 1}
+                    text={`Recommencez`}
+                    index={1}
                     className='bg-dark-green'
                     click={progressClick}
                 />

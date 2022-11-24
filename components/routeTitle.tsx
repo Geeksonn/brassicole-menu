@@ -10,11 +10,10 @@ type RouteTitleProps = {
 };
 
 const RouteTitle: React.FunctionComponent<RouteTitleProps> = ({ accent, number, title }: RouteTitleProps) => {
-    let titleClass = `${css.routeTitle} `;
-    titleClass = titleClass + (accent === ACCENT_PINK ? `bg-pink` : `bg-orange`);
+    const titleBgClass = accent === ACCENT_PINK ? `bg-pink` : `bg-orange`;
 
     return (
-        <div className={titleClass}>
+        <div className={`${css.routeTitle} ${titleBgClass}`}>
             <div className={css.routeNumber}>{number}</div>
             <div className='flex flex-col'>
                 <p className='text-xs text-white'>Route</p>

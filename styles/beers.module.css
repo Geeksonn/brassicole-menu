@@ -1,15 +1,15 @@
 /*
-    Beers --> 3 par ligne 
+    Beers List
 */
 
 .wrapper {
-    @apply flex flex-wrap justify-evenly px-8 -mt-8;
+    @apply flex flex-wrap justify-evenly px-4 -mt-8;
 }
 
 .container {
     @apply flex justify-evenly w-72 mb-11 py-4 bg-white rounded-md cursor-pointer;
     @apply last:mb-32 shadow-default;
-    @apply lg:w-96 lg:py-4 lg:mb-16 lg:mt-2;
+    @apply lg:w-[450px] lg:py-4 lg:mb-16 lg:mt-2;
 }
 
 .imgContainer {
@@ -79,7 +79,7 @@
 }
 
 .beerInfoImage {
-    @apply -mt-12 pl-6 pr-10;
+    @apply pl-6 pr-10;
     @apply lg:pl-16 lg:pr-20;
 }
 

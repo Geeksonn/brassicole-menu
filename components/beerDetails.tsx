@@ -19,7 +19,7 @@ const BeerDetails = ({ beer, close }: BeerBetailsProps) => {
                 <i>{leftArrowIcon}</i>
                 <p>Retour à la carte</p>
             </div>
-            <BeerLayout beer={beer} imgSrc={beer.imageCard} imgW={71} imgH={289} />
+            <BeerLayout beer={beer} imgSrc={beer.imageCard} />
         </div>
     );
 };

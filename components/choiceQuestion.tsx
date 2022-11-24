@@ -43,17 +43,18 @@ const ChoiceQuestion: React.FunctionComponent<ChoiceQuestionProps> = (props) => 
                 selectedBeer={selectedBeer.name !== ''}
                 progressClick={progressClick}
             />
+
             {selectedBeer.name === '' ? (
                 <div className={`${css.choiceWrapper} `}>
                     <div className={css.choiceTitle}>
                         {/*Répondez au questionnaire pour découvrir la bière faite pour vous !*/}
-                        Découvrez LA bière faite pour vous !
+                        Laissez-vous guider !
                     </div>
-                    <div className='mx-auto text-lg'>{question.question}</div>
+                    <div className={css.question}>{question.question}</div>
                     <ChoiceButtons options={question.options} handleClick={handleClick} />
                 </div>
             ) : (
-                <BeerLayout beer={selectedBeer} imgSrc={selectedBeer.imageCard} imgW={71} imgH={289} />
+                <BeerLayout beer={selectedBeer} imgSrc={selectedBeer.imageCard} />
             )}
         </div>
     );

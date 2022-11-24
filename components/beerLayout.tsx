@@ -5,25 +5,24 @@ import { Beers } from '@lib/types';
 import { breweryIcon } from './icons';
 import css from '@styles/beers.module.css';
 import useMediaQuery from './useMediaQuery';
-import { MAX_WIDTH_MOB } from '@lib/constants';
+import { BEER_BIGGER_IMG, MAX_WIDTH_MOB } from '@lib/constants';
 
 type BeerLayoutProps = {
     beer: Beers;
     imgSrc: string;
-    imgW: number;
-    imgH: number;
 };
 
 const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
-    const { beer, imgSrc, imgW, imgH } = props;
+    const { beer, imgSrc } = props;
     const isMobile = useMediaQuery(MAX_WIDTH_MOB);
 
-    const beerImgJsx = () => {
+    const beerImgJsx = (name: string) => {
         const imgPath = process.env.NEXT_PUBLIC_IMG_CDN + imgSrc + '/';
         const imgClass = isMobile ? 'w-16' : 'w-32';
+        const imgPos = BEER_BIGGER_IMG.includes(name) ? 'mt-12' : '-mt-12';
 
         return (
-            <div className={css.beerInfoImage}>
+            <div className={`${css.beerInfoImage} ${imgPos}`}>
                 <img src={imgPath} className={imgClass} />
             </div>
         );
@@ -35,7 +34,7 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
             jsx = (
                 <div className='flex flex-col'>
                     <div className='flex justify-evenly'>
-                        {beerImgJsx()}
+                        {beerImgJsx(beer.name)}
                         <div className={css.beerInfoContent}>
                             <h1>{beer.name}</h1>
                             <p className={css.detailType}>{beer.type}</p>
@@ -55,7 +54,7 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
         } else {
             jsx = (
                 <>
-                    {beerImgJsx()}
+                    {beerImgJsx(beer.name)}
                     <div className={css.beerInfoContent}>
                         <h1>{beer.name}</h1>
                         <p className={css.detailType}>{beer.type}</p>

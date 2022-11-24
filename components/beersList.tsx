@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import React from 'react';
 
 import { Beers } from '@lib/types';
 
 import css from '@styles/beers.module.css';
+import { BEER_BIGGER_IMG } from '@lib/constants';
 
 type BeerInfo = {
     name: string;
@@ -25,8 +25,7 @@ type BeersListProps = {
 };
 
 const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: BeerCardProps) => {
-    const biggerImageArray = ['Arsenal', 'Frambo', 'Witlab', 'Binchoise Brune', 'Mermaid'];
-    const beerImgClass = biggerImageArray.includes(beer.name) ? 'w-16' : 'w-10';
+    const beerImgClass = BEER_BIGGER_IMG.includes(beer.name) ? 'w-16' : 'w-10';
 
     return (
         <div className={css.container} onClick={clickHandler}>

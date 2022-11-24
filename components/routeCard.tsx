@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Image from 'next/image';
-
 import { roseEllips, roseLine, yellowEllips, yellowLine } from './routeCardDecoration';
 import css from '@styles/routes.module.css';
-import { ACCENT_PINK } from '@lib/constants';
+import { ACCENT_PINK, BEER_BIGGER_IMG } from '@lib/constants';
+import BeerCard from './beerCard';
 
 type RouteCardProps = {
     accent: string;
@@ -20,8 +19,16 @@ type RouteCardProps = {
 const RouteCard: React.FunctionComponent<RouteCardProps> = (props: RouteCardProps) => {
     const ellips = props.accent === ACCENT_PINK ? roseEllips : yellowEllips;
     const line = props.accent === ACCENT_PINK ? roseLine : yellowLine;
-    const wrapperClass = `flex ${(props.first ? `mt-7` : ``)}`;
-    const imgSrc = process.env.NEXT_PUBLIC_IMG_CDN + (props.imageCard ? props.imageCard : '') + '/';
+    const wrapperClass = `flex ${(props.first ? `mt-20` : `-mt-10`)}`;
+    
+    const beerInfo = {
+        name: props.name || '',
+        imageCard: props.imageCard || '',
+        degree: props.degree || 0,
+        ibu: props.ibu || 0,
+        type: props.type || '',
+        description: ''
+    };
 
     return (
         <div className={wrapperClass}>
@@ -29,9 +36,12 @@ const RouteCard: React.FunctionComponent<RouteCardProps> = (props: RouteCardProp
                 <i>{ellips}</i>
                 {props.last ? null : <i>{line}</i>}
             </div>
+            <BeerCard beer={beerInfo} clickHandler={() => {}} />
+            {/*}
             <div className={css.routeCard}>
                 <div className='mx-3'>
-                    <Image src={imgSrc} width='19px' height='76px' />
+                    {/*<Image src={imgSrc} width='19px' height='76px' />
+                    <img src={imgSrc} className={beerImgClass} />
                 </div>
                 <div className={css.beerInfo}>
                     <h3>{props.name}</h3>
@@ -42,6 +52,7 @@ const RouteCard: React.FunctionComponent<RouteCardProps> = (props: RouteCardProp
                     </div>
                 </div>
             </div>
+            */}
         </div>
     );
 };

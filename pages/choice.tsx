@@ -60,7 +60,6 @@ const Choice = () => {
     };
 
     const progressClick = (index: number) => {
-        console.log('Clicking on ' + index + ' // history: ', questionHistory);
         if (index < questionHistory.length) {
             resetQuestion(index);
         }
