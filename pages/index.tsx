@@ -13,11 +13,6 @@ const Home = () => {
     const { data } = React.useContext(GlobalState);
     const [selectedBeer, setSelectedBeer] = React.useState<Beers>(defaultBeer);
 
-    const handleClick = (beer: any) => {
-        // TODO 'any'
-        setSelectedBeer(beer);
-    };
-
     return (
         <Layout title='La Carte' activePage={MENU_PAGE}>
             {selectedBeer !== defaultBeer ? (
