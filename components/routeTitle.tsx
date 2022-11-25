@@ -15,8 +15,8 @@ const RouteTitle: React.FunctionComponent<RouteTitleProps> = ({ accent, number, 
     return (
         <div className={`${css.routeTitle} ${titleBgClass}`}>
             <div className={css.routeNumber}>{number}</div>
-            <div className='flex flex-col'>
-                <p className='text-xs text-white'>Route</p>
+            <div className={css.routeNameWrapper}>
+                <p className={css.route}>Route</p>
                 <p className={css.routeName}>{title}</p>
             </div>
         </div>

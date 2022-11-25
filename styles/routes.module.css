@@ -34,6 +34,7 @@
 
 .routeTitle {
     @apply pr-5 py-1;
+    @apply lg:py-4;
 }
 
 .routeNav {
@@ -42,8 +43,19 @@
 
 .routeNumber {
     @apply pl-1 pr-5 font-title font-bold text-5xl text-white/30;
+    @apply lg:text-8xl lg:pl-2;
+}
+
+.routeNameWrapper {
+    @apply flex flex-col;
+}
+
+.route {
+    @apply text-sm text-white;
+    @apply lg:text-base;
 }
 
 .routeName {
     @apply -mt-1 font-title font-semibold text-xl text-white;
+    @apply lg:text-4xl;
 }
