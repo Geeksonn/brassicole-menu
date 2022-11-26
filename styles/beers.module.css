@@ -41,8 +41,13 @@
     @apply mt-1 text-lg;
 }
 
+.dataWrapper {
+    @apply flex flex-col space-y-3 mt-4;
+    @apply lg:flex-row lg:items-center lg:space-x-4 lg:space-y-0;
+}
+
 .dataContainer, .detailDataContainer {
-    @apply px-5 py-2 first:mr-3;
+    @apply px-5 py-2 w-fit;
     @apply bg-very-light-grey rounded-[90px] font-light text-red;
 }
 
@@ -52,6 +57,10 @@
 
 .detailDataContainer {
     @apply text-sm;
+}
+
+.nameWrapper {
+    @apply flex justify-between items-center pr-2;
 }
 
 

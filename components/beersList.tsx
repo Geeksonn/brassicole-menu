@@ -33,9 +33,14 @@ const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: Be
                 <img src={process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/'} className={beerImgClass} />
             </div>
             <div className={css.infoContainer}>
-                <h2>{beer.name}</h2>
+                <div className={css.nameWrapper}>
+                    <h2>{beer.name}</h2>
+                    {['Arsenal', 'Boentje'].includes(beer.name) ? (
+                        <img src='/tapBeer.svg' className='w-12 lg:w-16' />
+                    ) : null}
+                </div>
                 <p className={css.type}>{beer.type}</p>
-                <div className='flex mt-4'>
+                <div className={css.dataWrapper}>
                     <div className={css.dataContainer}>{`${beer.degree} %`}</div>
                     <div className={css.dataContainer}>{`IBU ${beer.ibu}`}</div>
                 </div>

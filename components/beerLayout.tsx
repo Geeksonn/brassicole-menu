@@ -37,7 +37,12 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
                         {beerImgJsx(beer.name)}
                         <div className={css.beerInfoContent}>
                             <h1>{beer.name}</h1>
-                            <p className={css.detailType}>{beer.type}</p>
+                            <div className={css.nameWrapper}>
+                                <p className={css.detailType}>{beer.type}</p>
+                                {['Arsenal', 'Boentje'].includes(beer.name) ? (
+                                    <img src='/tapBeer.svg' className='w-12 lg:w-16' />
+                                ) : null}
+                            </div>
                             <div className='flex mt-4'>
                                 <div className={css.dataContainer}>{`${beer.degree} %`}</div>
                                 <div className={css.dataContainer}>{`IBU ${beer.ibu}`}</div>
@@ -57,7 +62,12 @@ const BeerLayout: React.FunctionComponent<BeerLayoutProps> = (props) => {
                     {beerImgJsx(beer.name)}
                     <div className={css.beerInfoContent}>
                         <h1>{beer.name}</h1>
-                        <p className={css.detailType}>{beer.type}</p>
+                        <div className={css.nameWrapper}>
+                            <p className={css.detailType}>{beer.type}</p>
+                            {['Arsenal', 'Boentje'].includes(beer.name) ? (
+                                <img src='/tapBeer.svg' className='w-12 lg:w-32 lg:-mt-12' />
+                            ) : null}
+                        </div>
                         <div className='flex mt-4'>
                             <div className={css.dataContainer}>{`${beer.degree} %`}</div>
                             <div className={css.dataContainer}>{`IBU ${beer.ibu}`}</div>
