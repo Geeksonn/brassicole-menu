@@ -36,7 +36,7 @@ const Beer: React.FunctionComponent<BeerCardProps> = ({ beer, clickHandler }: Be
                 <div className={css.nameWrapper}>
                     <h2>{beer.name}</h2>
                     {['Arsenal', 'Boentje'].includes(beer.name) ? (
-                        <img src='/tapBeer.svg' className='w-12 lg:w-28' />
+                        <img src='/tapBeer.svg' className='w-12 lg:w-28 lg:-mt-12' />
                     ) : null}
                 </div>
                 <p className={css.type}>{beer.type}</p>
