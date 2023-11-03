@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    @apply m-auto w-screen max-w-[1080px] p-0 my-0 bg-beige;
+}
+
+header {
+    @apply h-48 bg-header bg-no-repeat px-14 pt-8;
+    @apply flex justify-between items-start;
+}
+
+header p {
+    @apply pt-3 text-white font-title font-bold text-4xl;
+    @apply lg:text-6xl;
+}
+
+main {
+    @apply font-body;
+}
+
+footer {
+    @apply flex w-screen max-w-[1080px] h-28 z-10 py-5 fixed bottom-0 bg-white;
+}
+
+img {
+    @apply max-w-none;
+}
+
+a {
+    @apply text-inherit no-underline;
+}
+
+* {
+    @apply box-border;
+}
