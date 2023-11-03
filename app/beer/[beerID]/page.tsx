@@ -1,3 +1,4 @@
+import BeerDetailBackButton from '@/_ui/beer/beerDetailBackButton';
 import BeerLayout from '@/_ui/beer/beerLayout';
 import FooterMenu from '@/_ui/footerMenu';
 import Header from '@/_ui/header';
@@ -28,9 +29,12 @@ export default async function BeerPage({ params }: { params: { beerID: string } 
 
     return (
         <PageWrapper>
-            <Header title='Arbre de choix' />
-            {beer !== undefined && <BeerLayout beer={beer} />}
-            <FooterMenu menuActive={3} />
+            <Header title='Détail de la bière' />
+            <div className='flex flex-col mx-4'>
+                <BeerDetailBackButton />
+                {beer !== undefined && <BeerLayout beer={beer} />}
+            </div>
+            <FooterMenu menuActive={1} />
         </PageWrapper>
     );
 }
