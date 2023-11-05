@@ -1,3 +1,4 @@
+import UserEventListener from './_ui/userEventListener';
 import './globals.css';
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel='stylesheet' href='https://use.typekit.net/jys2xij.css' />
             </head>
             <body>{children}</body>
+            <UserEventListener />
         </html>
     );
 }
