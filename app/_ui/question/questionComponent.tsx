@@ -46,7 +46,7 @@ const QuestionComponent: React.FunctionComponent<Props> = ({ questions, beers })
                 setQids([...qids, nextQuestion.qid]);
             }
         } else {
-            const beer = beers.find((b) => b.name === selectedOption.selectedBeer);
+            const beer = beers.find((b) => b._id === selectedOption.selectedBeerId);
             if (beer) {
                 setSelectedBeer(beer);
             }
