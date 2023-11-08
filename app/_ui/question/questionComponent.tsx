@@ -9,10 +9,9 @@ import BeerLayout from '../beer/beerLayout';
 
 type Props = {
     questions: Question[];
-    beers: Beer[];
 };
 
-const QuestionComponent: React.FunctionComponent<Props> = ({ questions, beers }) => {
+const QuestionComponent: React.FunctionComponent<Props> = ({ questions }) => {
     const [currentQuestion, setCurrentQuestion] = React.useState<Question>(questions[0]);
     const [selectedBeer, setSelectedBeer] = React.useState<Beer>();
     const [qids, setQids] = React.useState<number[]>([questions[0].qid]);
@@ -46,10 +45,7 @@ const QuestionComponent: React.FunctionComponent<Props> = ({ questions, beers })
                 setQids([...qids, nextQuestion.qid]);
             }
         } else {
-            const beer = beers.find((b) => b._id === selectedOption.selectedBeerId);
-            if (beer) {
-                setSelectedBeer(beer);
-            }
+            setSelectedBeer(selectedOption.selectedBeer);
         }
     };
 

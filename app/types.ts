@@ -36,7 +36,7 @@ export type Route = {
 };
 
 export type QuestionOption = {
-    selectedBeer: string;
+    selectedBeer: Beer;
     nextQuestion: number;
     option: string;
     selectedBeerId: string;
