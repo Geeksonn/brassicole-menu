@@ -7,7 +7,7 @@ const BeerCard: React.FunctionComponent<Beer> = (beer) => {
 
     return (
         <Link href={`/beer/${beer._id}/`}>
-            <div className='flex justify-evenly w-72 mb-11 py-4 bg-white rounded-md cursor-pointer shadow-default lg:w-[450px] lg:py-4 lg:mb-16 lg:mt-2'>
+            <div className='flex justify-evenly w-72 h-40 py-4 bg-white rounded-md cursor-pointer shadow-default lg:w-[450px] lg:py-4 lg:mb-16 lg:mt-2'>
                 <div className='w-1/3 -mt-10'>
                     <img src={imgUrl} className='h-40 mx-auto' />
                 </div>

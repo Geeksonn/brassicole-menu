@@ -11,7 +11,7 @@ type Props = {
 
 const RouteList: React.FunctionComponent<Props> = ({ accent, routeNr, route, beers }) => {
     return (
-        <div className='flex flex-col mb-32'>
+        <div className='flex flex-col gap-y-20 mb-32'>
             <RouteTitle title={route.name} number={routeNr} accent={accent} />
             {route.beers.map((elt, ind) => (
                 <RouteElement
