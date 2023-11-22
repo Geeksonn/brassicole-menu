@@ -23,6 +23,9 @@ const UserEventListener: React.FunctionComponent = () => {
                 passive: false,
             }
         );
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) e.preventDefault();
+        });
     }, []);
 
     return null;
