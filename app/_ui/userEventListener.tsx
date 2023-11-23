@@ -23,10 +23,13 @@ const UserEventListener: React.FunctionComponent = () => {
                 passive: false,
             }
         );
-        window.addEventListener('touchstart', (e) => {
-            console.log('Event touch --> ', e.touches.length, e.touches, e);
-            if (e.touches.length > 1) e.preventDefault();
-        });
+        window.addEventListener(
+            'touchstart',
+            (e) => {
+                if (e.touches.length > 1) e.preventDefault();
+            },
+            { passive: false }
+        );
     }, []);
 
     return null;
