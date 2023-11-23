@@ -24,6 +24,7 @@ const UserEventListener: React.FunctionComponent = () => {
             }
         );
         window.addEventListener('touchstart', (e) => {
+            console.log('Event touch --> ', e.touches.length, e.touches, e);
             if (e.touches.length > 1) e.preventDefault();
         });
     }, []);
