@@ -16,7 +16,7 @@ const RouteElement: React.FunctionComponent<Props> = ({ accent, last, first, bee
 
     return (
         <div className={`flex ${first ? '' : '-mt-14'}`}>
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col items-center pt-2'>
                 <i>{ellips}</i>
                 {last ? null : <i>{line}</i>}
             </div>
