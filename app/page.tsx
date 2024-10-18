@@ -2,24 +2,14 @@ import BeersList from './_ui/beer/beerList';
 import FooterMenu from './_ui/footerMenu';
 import Header from './_ui/header';
 import PageWrapper from './_ui/pageWrapper';
+import { getBeers } from './lib/beers';
+import { Beer } from './types';
 
 const getData = async () => {
-    const url = process.env.ATLAS_API_URL + '/beers';
-    const options: RequestInit = {
-        method: 'GET',
-        headers: {
-            'content-type': 'application/json',
-            'api-key': process.env.ATLAS_API_KEY || '',
-        },
-    };
+    console.log('before getting beers');
+    const beers: Beer[] = await getBeers();
 
-    const res = await fetch(url, options);
-    if (!res.ok) {
-        console.error('Error while getting data', url, options, res.status);
-        return [];
-    }
-
-    return await res.json();
+    return beers;
 };
 
 export default async function MenuPage() {

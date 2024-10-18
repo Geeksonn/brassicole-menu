@@ -49,3 +49,14 @@ export type Question = {
     question: string;
     edition: string;
 }
+
+export type Edition = {
+    _id: string;
+    name: string;
+    date: {
+        year: number;
+        month: number;
+    };
+    active: boolean;
+    number: number;
+}

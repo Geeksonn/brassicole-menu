@@ -3,6 +3,8 @@ import FooterMenu from '@/_ui/footerMenu';
 import Header from '@/_ui/header';
 import PageWrapper from '@/_ui/pageWrapper';
 import RouteList from '@/_ui/route/routeList';
+import { getBeers } from '@/lib/beers';
+import { getRoutes } from '@/lib/routes';
 import { Beer, Route } from '@/types';
 
 const getData = async (): Promise<{ beers: Beer[]; routes: Route[] }> => {
@@ -32,7 +34,7 @@ const getData = async (): Promise<{ beers: Beer[]; routes: Route[] }> => {
 };
 
 export default async function RoutePage() {
-    const { routes, beers } = await getData();
+    const [routes, beers] = await Promise.all([getRoutes(), getBeers()]);
 
     return (
         <PageWrapper>
@@ -42,7 +44,9 @@ export default async function RoutePage() {
                     <RouteList accent={ACCENT_PINK} routeNr='01' route={routes[0]} beers={beers} />
                     <RouteList accent={ACCENT_ORANGE} routeNr='02' route={routes[1]} beers={beers} />
                 </div>
-            ) : (<p>Aucune donnée</p>)}
+            ) : (
+                <p>Aucune donnée</p>
+            )}
             <FooterMenu menuActive={2} />
         </PageWrapper>
     );

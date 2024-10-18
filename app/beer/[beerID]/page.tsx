@@ -3,29 +3,11 @@ import BeerLayout from '@/_ui/beer/beerLayout';
 import FooterMenu from '@/_ui/footerMenu';
 import Header from '@/_ui/header';
 import PageWrapper from '@/_ui/pageWrapper';
-import { Beer } from '@/types';
-
-const getData = async (beerID: string): Promise<Beer | undefined> => {
-    const beerUrl = `${process.env.ATLAS_API_URL}/beers?beerId=${beerID}`;
-    const options: RequestInit = {
-        method: 'GET',
-        headers: {
-            'content-type': 'application/json',
-            'api-key': process.env.ATLAS_API_KEY || '',
-        },
-    };
-
-    const res = await fetch(beerUrl, options);
-    if (!res.ok) {
-        console.error('Error while getting data', res.status);
-        return undefined;
-    }
-
-    return await res.json();
-};
+import { getBeerById } from '@/lib/beers';
 
 export default async function BeerPage({ params }: { params: { beerID: string } }) {
-    const beer = await getData(params.beerID);
+    const beer = await getBeerById(params.beerID);
+    if (!beer) throw new Error('Trying to get a beer that was not found');
 
     return (
         <PageWrapper>
