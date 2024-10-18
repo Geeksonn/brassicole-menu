@@ -5,25 +5,6 @@ import QuestionComponent from '@/_ui/question/questionComponent';
 import { getQuestions } from '@/lib/questions';
 import { Question } from '@/types';
 
-const getData = async (): Promise<Question[]> => {
-    const questionUrl = process.env.ATLAS_API_URL + '/questions';
-    const options: RequestInit = {
-        method: 'GET',
-        headers: {
-            'content-type': 'application/json',
-            'api-key': process.env.ATLAS_API_KEY || '',
-        },
-    };
-
-    const res = await fetch(questionUrl, options);
-    if (!res.ok) {
-        console.error('Error while getting data', res.status);
-        return [];
-    }
-
-    return await res.json();
-};
-
 export default async function MenuPage() {
     const questions = await getQuestions();
 
