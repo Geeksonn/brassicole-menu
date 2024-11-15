@@ -9,6 +9,7 @@ export type Beer = {
     type: string;
     container: string;
     brewery: string;
+    distance?: number;
     degree: BeerDegree;
     ibu: number;
     image: string;
