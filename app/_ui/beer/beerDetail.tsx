@@ -19,21 +19,27 @@ const BeerDetail: React.FunctionComponent<Beer> = (beer) => {
                     <BeerInfoPill info={`${beer.degree.integer},${beer.degree.decimal} %`} />
                     <BeerInfoPill info={`IBU ${beer.ibu}`} />
                 </div>
-                <div
-                    className={`flex w-full mt-9 pb-3 ${
-                        beer.distance ? '' : 'border-b border-b-dark-white'
-                    }`}>
-                    <i className='mr-3'>
-                        <BreweryIcon />
-                    </i>
-                    <p className='text-dark-green'>{beer.brewery}</p>
-                </div>
-                {!beer.distance || beer.distance <= 0 ? null : (
-                    <div className='flex w-full pb-3 border-b border-b-dark-white'>
+                {!beer.distance || beer.distance <= 0 ? (
+                    <div className={`flex w-full mt-7 pb-3 border-b border-b-dark-white`}>
                         <i className='mr-3'>
-                            <DistanceIcon />
+                            <BreweryIcon />
                         </i>
-                        <p className='text-dark-green'>{`${beer.distance} km`}</p>
+                        <p className='text-dark-green'>{beer.brewery}</p>
+                    </div>
+                ) : (
+                    <div className='flex w-full gap-x-5 mt-7 pb-3 border-b border-b-dark-white'>
+                        <div className='flex'>
+                            <i className='mr-3'>
+                                <BreweryIcon />
+                            </i>
+                            <p className='text-dark-green'>{beer.brewery}</p>
+                        </div>
+                        <div className='flex'>
+                            <i className='mr-3'>
+                                <DistanceIcon />
+                            </i>
+                            <p className='text-dark-green'>{`${beer.distance} km`}</p>
+                        </div>
                     </div>
                 )}
                 <p className='my-6 font-light whitespace-pre-line'>{beer.description}</p>
