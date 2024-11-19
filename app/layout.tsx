@@ -11,6 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang='en'>
             <head>
                 <link rel='stylesheet' href='https://use.typekit.net/jys2xij.css' />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             </head>
             <body>{children}</body>
             <UserEventListener />
