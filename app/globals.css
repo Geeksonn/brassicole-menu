@@ -4,7 +4,7 @@
 
 html,
 body {
-    @apply m-auto w-screen max-w-[1080px] p-0 my-0 bg-beige;
+    @apply m-auto w-screen max-w-[1080px] p-0 my-0 bg-beige select-none;
 }
 
 header {
