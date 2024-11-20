@@ -6,6 +6,8 @@ import RouteList from '@/_ui/route/routeList';
 import { getBeers } from '@/lib/beers';
 import { getRoutes } from '@/lib/routes';
 
+export const dynamic = 'force-dynamic';
+
 export default async function RoutePage() {
     const [routes, beers] = await Promise.all([getRoutes(), getBeers()]);
 
@@ -24,5 +26,3 @@ export default async function RoutePage() {
         </PageWrapper>
     );
 }
-
-export const revalidate = 10; // 10 seconds --> to change after tests

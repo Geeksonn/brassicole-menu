@@ -19,7 +19,7 @@ export const getBeers = async () => {
     const editionCollection = db.collection('editions');
 
     const edition = await editionCollection.findOne({ active: true });
-    const queryBeer = { edition: edition?.name, type: { $nin: ['Soft', 'Vin'] } };
+    const queryBeer = { edition: edition?.name };
 
     const beers = await beerCollection.find<Beer>(queryBeer).toArray();
     return await JSON.parse(JSON.stringify(beers));

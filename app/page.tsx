@@ -5,23 +5,20 @@ import PageWrapper from './_ui/pageWrapper';
 import { getBeers } from './lib/beers';
 import { Beer } from './types';
 
-const getData = async () => {
-    console.log('before getting beers');
-    const beers: Beer[] = await getBeers();
-
-    return beers;
-};
+export const dynamic = 'force-dynamic';
 
 export default async function MenuPage() {
-    const beers = await getData();
+    const beers: Beer[] = await getBeers();
 
     return (
         <PageWrapper>
             <Header title='La carte' />
-            {beers.length > 0 ? <BeersList beers={beers} /> : <p>Aucune donnée</p>}
+            {beers.length > 0 ? (
+                <BeersList beers={beers.filter((b) => b.displayOnMenu)} />
+            ) : (
+                <p className='flex justify-center mt-5'>Patience ...</p>
+            )}
             <FooterMenu menuActive={1} />
         </PageWrapper>
     );
 }
-
-export const revalidate = 10; // 10 seconds --> to change after tests

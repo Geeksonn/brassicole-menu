@@ -5,6 +5,8 @@ import QuestionComponent from '@/_ui/question/questionComponent';
 import { getQuestions } from '@/lib/questions';
 import { Question } from '@/types';
 
+export const dynamic = 'force-dynamic';
+
 export default async function MenuPage() {
     const questions = await getQuestions();
 
@@ -20,5 +22,3 @@ export default async function MenuPage() {
         </PageWrapper>
     );
 }
-
-export const revalidate = 10; // 10 seconds --> to change after tests

@@ -18,6 +18,8 @@ export type Beer = {
     currency: string;
     description: string;
     edition: string;
+    displayOnMenu?:boolean;
+    displayOnStats?:boolean;
 };
 
 export type RouteBeer = {
