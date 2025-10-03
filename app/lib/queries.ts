@@ -1,18 +1,11 @@
-import { Beer, Question, QuestionsAndOptions, Route, RouteBeers, RouteWithBeers } from '@/types';
+import { Beer, QuestionsAndOptions, RouteWithBeers } from '@/types';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 export const getBeers = async (supabase: SupabaseClient): Promise<Beer[]> => {
-    const { data: activeEd, error: editionsError } = await supabase
-        .from('editions')
-        .select('id')
-        .eq('active', true)
-        .single();
-    if (editionsError) {
-        console.error('Error fetching active edition:', editionsError);
-        return [];
-    }
-
-    const { data: beers, error } = await supabase.from('beers').select('*').eq('edition', activeEd.id);
+    const { data: beers, error } = await supabase
+        .from('beers')
+        .select('*, editions!inner()')
+        .eq('editions.active', true);
 
     if (error) {
         console.error('Error fetching beers:', error);
@@ -33,8 +26,11 @@ export const getBeerById = async (supabase: SupabaseClient, beerId: string): Pro
     return beer;
 };
 
-export const getRoutes = async (supabase: SupabaseClient): Promise<RouteWithBeers> => {
-    const { data: routes, error } = await supabase.rpc('get_active_routes');
+export const getRoutes = async (supabase: SupabaseClient) /*: Promise<RouteWithBeers>*/ => {
+    const { data: routes, error } = await supabase
+        .from('routes')
+        .select('*, editions!inner()')
+        .eq('editions.active', true);
 
     if (error) {
         console.error('Error fetching routes:', error);
