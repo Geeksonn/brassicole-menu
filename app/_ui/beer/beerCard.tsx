@@ -3,10 +3,10 @@ import BeerInfoPill from './beerInfoPill';
 import Link from 'next/link';
 
 const BeerCard: React.FunctionComponent<Beer> = (beer) => {
-    const imgUrl = process.env.NEXT_PUBLIC_IMG_CDN + beer.imageCard + '/';
+    const imgUrl = process.env.NEXT_PUBLIC_IMG_CDN + (beer.imagecard || '') + '/';
 
     return (
-        <Link href={`/beer/${beer._id}/`}>
+        <Link href={`/beer/${beer.id}/`}>
             <div className='flex justify-evenly w-72 h-[155px] bg-white rounded-md cursor-pointer shadow-default lg:w-[450px] lg:py-4 lg:mb-6 lg:mt-1'>
                 <div className='w-1/3 -mt-8'>
                     <img src={imgUrl} className='h-40 mx-auto' />
@@ -20,7 +20,7 @@ const BeerCard: React.FunctionComponent<Beer> = (beer) => {
                     </div>
                     <p className='text-base text-light-grey'>{beer.type}</p>
                     <div className='flex flex-col space-y-1 mt-4 lg:flex-row lg:items-center lg:space-x-4 lg:space-y-0'>
-                        <BeerInfoPill info={`${beer.degree.integer},${beer.degree.decimal} %`} />
+                        <BeerInfoPill info={`${beer.degree_integer},${beer.degree_decimal} %`} />
                         <BeerInfoPill info={`IBU ${beer.ibu}`} />
                     </div>
                 </div>

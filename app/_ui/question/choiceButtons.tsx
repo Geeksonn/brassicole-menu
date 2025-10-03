@@ -1,7 +1,7 @@
-import { QuestionOption } from '@/types';
+import { Options } from '@/types';
 
 type Props = {
-    options: QuestionOption[];
+    options: Options[];
     handleClick: (option: number) => void;
 };
 
@@ -21,4 +21,3 @@ const ChoiceButtons: React.FunctionComponent<Props> = ({ options, handleClick })
 };
 
 export default ChoiceButtons;
-

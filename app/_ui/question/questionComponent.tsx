@@ -2,17 +2,18 @@
 
 import React from 'react';
 
-import { Question, Beer } from '@/types';
+import { Question, Beer, QuestionsAndOptions } from '@/types';
 import Progress from './progress';
 import ChoiceButtons from './choiceButtons';
 import BeerLayout from '../beer/beerLayout';
 
 type Props = {
-    questions: Question[];
+    questions: QuestionsAndOptions[];
+    beers: Beer[];
 };
 
-const QuestionComponent: React.FunctionComponent<Props> = ({ questions }) => {
-    const [currentQuestion, setCurrentQuestion] = React.useState<Question>(questions[0]);
+const QuestionComponent: React.FunctionComponent<Props> = ({ questions, beers }) => {
+    const [currentQuestion, setCurrentQuestion] = React.useState<QuestionsAndOptions>(questions[0]);
     const [selectedBeer, setSelectedBeer] = React.useState<Beer>();
     const [qids, setQids] = React.useState<number[]>([questions[0].qid]);
 
@@ -38,14 +39,19 @@ const QuestionComponent: React.FunctionComponent<Props> = ({ questions }) => {
 
     const choiceClick = (option: number) => {
         const selectedOption = currentQuestion.options[option];
-        if (selectedOption.nextQuestion > 0) {
-            let nextQuestion = questions.find((q) => q.qid === selectedOption.nextQuestion);
+        if (selectedOption.next_question > 0) {
+            let nextQuestion = questions.find((q) => q.qid === selectedOption.next_question);
             if (nextQuestion) {
                 setCurrentQuestion(nextQuestion);
                 setQids([...qids, nextQuestion.qid]);
             }
         } else {
-            setSelectedBeer(selectedOption.selectedBeer);
+            const beerIndex = beers.findIndex((b) => b.id === selectedOption.selected_beer_id);
+            if (selectedOption.selected_beer_id === null) {
+                console.error('No beer selected for option', selectedOption);
+                setSelectedBeer(undefined);
+            }
+            setSelectedBeer(beers[beerIndex]);
         }
     };
 
@@ -64,9 +70,7 @@ const QuestionComponent: React.FunctionComponent<Props> = ({ questions }) => {
                     <ChoiceButtons options={currentQuestion.options} handleClick={choiceClick} />
                 </div>
             ) : (
-                <p>
-                    <BeerLayout beer={selectedBeer} />
-                </p>
+                <BeerLayout beer={selectedBeer} />
             )}
         </div>
     );

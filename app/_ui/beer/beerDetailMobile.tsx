@@ -7,7 +7,7 @@ const BeerDetailMobile: React.FunctionComponent<Beer> = (beer) => {
     return (
         <div className='flex flex-col'>
             <div className='flex justify-evenly'>
-                <BeerImage image={beer.imageCard} />
+                <BeerImage image={beer.imagecard || ''} />
                 <div className='flex flex-col grow py-4 lg:py-16'>
                     <h1>{beer.name}</h1>
                     <div className='flex justify-between items-center pr-2'>
@@ -17,7 +17,7 @@ const BeerDetailMobile: React.FunctionComponent<Beer> = (beer) => {
                         ) : null}
                     </div>
                     <div className='flex mt-4'>
-                        <BeerInfoPill info={`${beer.degree.integer},${beer.degree.decimal} %`} />
+                        <BeerInfoPill info={`${beer.degree_integer},${beer.degree_decimal} %`} />
                         <BeerInfoPill info={`IBU ${beer.ibu}`} />
                     </div>
                     <div className='flex w-full mt-9 pb-3 border-b border-b-dark-white'>
