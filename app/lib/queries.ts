@@ -26,7 +26,7 @@ export const getBeerById = async (supabase: SupabaseClient, beerId: string): Pro
     return beer;
 };
 
-export const getRoutes = async (supabase: SupabaseClient) /*: Promise<RouteWithBeers>*/ => {
+export const getRoutes = async (supabase: SupabaseClient) : Promise<RouteWithBeers> => {
     const { data: routes, error } = await supabase
         .from('routes')
         .select('*, editions!inner()')
