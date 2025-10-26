@@ -10,7 +10,7 @@ type Props = {
 
 const BeersList: React.FunctionComponent<Props> = ({ beers }) => {
     return (
-        <div className='flex flex-wrap justify-evenly px-4 -mt-14'>
+        <div className='flex flex-wrap justify-evenly px-4 -mt-14 mb-32'>
             {beers
                 .sort((a, b) => (a.name < b.name ? -1 : 1))
                 .map((beer) => (
