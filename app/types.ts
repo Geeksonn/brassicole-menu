@@ -26,7 +26,6 @@ export type QuestionsAndOptions = {
     id: string;
     qid: number;
     question: string;
-    editions: { name: string }[];
     options: Options[];
 };
 

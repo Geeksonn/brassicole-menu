@@ -24,7 +24,8 @@ main {
 }
 
 footer {
-    @apply flex w-screen max-w-[1080px] h-28 z-10 py-5 fixed bottom-0 bg-white;
+    @apply flex w-screen max-w-[1000px] h-28 z-10 py-5 mx-10 fixed bottom-5 bg-white;
+    @apply rounded-full
 }
 
 img {

@@ -26,7 +26,7 @@ export const getBeerById = async (supabase: SupabaseClient, beerId: string): Pro
     return beer;
 };
 
-export const getRoutes = async (supabase: SupabaseClient) : Promise<RouteWithBeers> => {
+export const getRoutes = async (supabase: SupabaseClient): Promise<RouteWithBeers> => {
     const { data: routes, error } = await supabase
         .from('routes')
         .select('*, editions!inner()')
@@ -52,8 +52,8 @@ export const getQuestionsNew = async (supabase: SupabaseClient): Promise<Questio
         .from('questions')
         .select(
             `id, qid, question, 
-            editions!inner (name),
-            options (id, option, next_question, selected_beer, selected_beer_id)`
+            editions!inner(),
+            options!options_question_fkey (id, option, next_question, selected_beer, selected_beer_id)`
         )
         .eq('editions.active', true)
         .order('qid', { ascending: true });

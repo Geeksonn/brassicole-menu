@@ -55,22 +55,22 @@ export type Database = {
       }
       app_users_badges: {
         Row: {
-          badge: string | null
-          date_awarded: string | null
+          badge: string
+          date_awarded: string
           id: string
-          user: string | null
+          user: string
         }
         Insert: {
-          badge?: string | null
-          date_awarded?: string | null
-          id: string
-          user?: string | null
+          badge: string
+          date_awarded: string
+          id?: string
+          user: string
         }
         Update: {
-          badge?: string | null
-          date_awarded?: string | null
+          badge?: string
+          date_awarded?: string
           id?: string
-          user?: string | null
+          user?: string
         }
         Relationships: [
           {
@@ -126,22 +126,22 @@ export type Database = {
       }
       app_users_ratings: {
         Row: {
-          beer: string | null
+          beer: string
           id: string
-          rating: number | null
-          user: string | null
+          rating: number
+          user: string
         }
         Insert: {
-          beer?: string | null
-          id: string
-          rating?: number | null
-          user?: string | null
+          beer: string
+          id?: string
+          rating: number
+          user: string
         }
         Update: {
-          beer?: string | null
+          beer?: string
           id?: string
-          rating?: number | null
-          user?: string | null
+          rating?: number
+          user?: string
         }
         Relationships: [
           {
@@ -162,22 +162,25 @@ export type Database = {
       }
       badges: {
         Row: {
-          description: string | null
+          code: string
+          description: string
           id: string
-          image: string | null
-          title: string | null
+          image: string
+          title: string
         }
         Insert: {
-          description?: string | null
+          code: string
+          description: string
           id: string
-          image?: string | null
-          title?: string | null
+          image: string
+          title: string
         }
         Update: {
-          description?: string | null
+          code?: string
+          description?: string
           id?: string
-          image?: string | null
-          title?: string | null
+          image?: string
+          title?: string
         }
         Relationships: []
       }
@@ -192,6 +195,7 @@ export type Database = {
           displayonmenu: boolean | null
           displayonstats: boolean | null
           distance: number | null
+          ebc: number
           edition: string
           ibu: number | null
           id: string
@@ -211,6 +215,7 @@ export type Database = {
           displayonmenu?: boolean | null
           displayonstats?: boolean | null
           distance?: number | null
+          ebc?: number
           edition: string
           ibu?: number | null
           id: string
@@ -230,6 +235,7 @@ export type Database = {
           displayonmenu?: boolean | null
           displayonstats?: boolean | null
           distance?: number | null
+          ebc?: number
           edition?: string
           ibu?: number | null
           id?: string
@@ -275,28 +281,28 @@ export type Database = {
       }
       events: {
         Row: {
-          description: string | null
-          edition: string | null
-          id: string | null
-          link: string | null
-          time: string | null
-          title: string | null
+          description: string
+          edition: string
+          id: string
+          link: string
+          time: string
+          title: string
         }
         Insert: {
-          description?: string | null
-          edition?: string | null
-          id?: string | null
-          link?: string | null
-          time?: string | null
-          title?: string | null
+          description: string
+          edition: string
+          id?: string
+          link: string
+          time: string
+          title: string
         }
         Update: {
-          description?: string | null
-          edition?: string | null
-          id?: string | null
-          link?: string | null
-          time?: string | null
-          title?: string | null
+          description?: string
+          edition?: string
+          id?: string
+          link?: string
+          time?: string
+          title?: string
         }
         Relationships: [
           {
@@ -311,34 +317,34 @@ export type Database = {
       options: {
         Row: {
           id: string
-          next_question: string | null
-          option: string | null
-          question: string | null
+          next_question: number
+          option: string
+          question: string
           selected_beer: string | null
           selected_beer_id: string | null
         }
         Insert: {
-          id: string
-          next_question?: string | null
-          option?: string | null
-          question?: string | null
+          id?: string
+          next_question: number
+          option: string
+          question: string
           selected_beer?: string | null
           selected_beer_id?: string | null
         }
         Update: {
           id?: string
-          next_question?: string | null
-          option?: string | null
-          question?: string | null
+          next_question?: number
+          option?: string
+          question?: string
           selected_beer?: string | null
           selected_beer_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "fk_options_beers"
-            columns: ["selected_beer_id"]
+            foreignKeyName: "options_beers_fk"
+            columns: ["question"]
             isOneToOne: false
-            referencedRelation: "beers"
+            referencedRelation: "questions"
             referencedColumns: ["id"]
           },
           {
@@ -417,22 +423,22 @@ export type Database = {
       }
       questions: {
         Row: {
-          edition: string | null
+          edition: string
           id: string
-          qid: number | null
-          question: string | null
+          qid: number
+          question: string
         }
         Insert: {
-          edition?: string | null
+          edition: string
           id: string
-          qid?: number | null
-          question?: string | null
+          qid: number
+          question: string
         }
         Update: {
-          edition?: string | null
+          edition?: string
           id?: string
-          qid?: number | null
-          question?: string | null
+          qid?: number
+          question?: string
         }
         Relationships: [
           {
@@ -468,7 +474,7 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "fk_options_beers"
+            foreignKeyName: "route_beers_beer_fk"
             columns: ["beer"]
             isOneToOne: false
             referencedRelation: "beers"
@@ -514,57 +520,36 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_active_routes: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          edition: string
-          id: string
-          name: string
-        }[]
-      }
       get_beers_ranking: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           beer: string
           count: number
         }[]
       }
       get_kpi: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           totalliters: number
           totalweight: number
         }[]
       }
-      get_order_menu: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          brewery: string
-          container: string
-          currency: string
-          degree: number
-          description: string
-          edition: string
-          edition_name: string
-          ibu: number
-          id: string
-          image: string
-          imagecard: string
-          name: string
-          price: number
-          type: string
-        }[]
-      }
       get_rounded_order_stats: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           date: string
           numberofitems: number
         }[]
       }
       get_route_menu: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: Database["public"]["CompositeTypes"]["route_menu_item"][]
+        SetofOptions: {
+          from: "*"
+          to: "route_menu_item"
+          isOneToOne: false
+          isSetofReturn: true
+        }
       }
     }
     Enums: {

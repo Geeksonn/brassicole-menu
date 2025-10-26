@@ -22,6 +22,7 @@ const BeerCard: React.FunctionComponent<Beer> = (beer) => {
                     <div className='flex flex-col space-y-1 mt-4 lg:flex-row lg:items-center lg:space-x-4 lg:space-y-0'>
                         <BeerInfoPill info={`${beer.degree_integer},${beer.degree_decimal} %`} />
                         <BeerInfoPill info={`IBU ${beer.ibu}`} />
+                        {beer.ebc > -1 ? <BeerInfoPill info={`EBC ${beer.ebc}`} /> : null}
                     </div>
                 </div>
             </div>

@@ -19,6 +19,7 @@ const BeerDetailMobile: React.FunctionComponent<Beer> = (beer) => {
                     <div className='flex mt-4'>
                         <BeerInfoPill info={`${beer.degree_integer},${beer.degree_decimal} %`} />
                         <BeerInfoPill info={`IBU ${beer.ibu}`} />
+                        {beer.ebc > -1 ? <BeerInfoPill info={`EBC ${beer.ebc}`} /> : null}
                     </div>
                     <div className='flex w-full mt-9 pb-3 border-b border-b-dark-white'>
                         <i className='mr-3'>

@@ -18,6 +18,7 @@ const BeerDetail: React.FunctionComponent<Beer> = (beer) => {
                 <div className='flex mt-4 space-x-2'>
                     <BeerInfoPill info={`${beer.degree_integer},${beer.degree_decimal} %`} />
                     <BeerInfoPill info={`IBU ${beer.ibu}`} />
+                    {beer.ebc > -1 ? <BeerInfoPill info={`EBC ${beer.ebc}`} /> : null}
                 </div>
                 {!beer.distance || beer.distance <= 0 ? (
                     <div className={`flex w-full mt-7 pb-3 border-b border-b-dark-white`}>
