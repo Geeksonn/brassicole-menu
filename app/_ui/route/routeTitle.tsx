@@ -1,4 +1,4 @@
-import { ACCENT_PINK } from '@/_ui/constants';
+import { ACCENT_GREEN, ACCENT_ORANGE, ACCENT_PINK } from '@/_ui/constants';
 
 type Props = {
     accent: string;
@@ -7,7 +7,21 @@ type Props = {
 };
 
 const RouteTitle: React.FunctionComponent<Props> = ({ accent, number, title }) => {
-    const bgColor = `bg-${accent}`;
+    const getBgColor = () => {
+        switch (accent) {
+            case ACCENT_PINK:
+                return 'bg-pink';
+            case ACCENT_ORANGE:
+                return 'bg-orange';
+            case ACCENT_GREEN:
+                return 'bg-dark-green';
+            default:
+                return 'bg-pink';
+        }
+    };
+
+    const bgColor = getBgColor();
+
     return (
         <div className={`flex items-center -mt-6 mb-14 rounded-full lg:mt-12 lg:mb-14  ${bgColor}`}>
             <div className='pl-1 pr-5 font-title font-bold text-5xl text-white/30 lg:text-8xl lg:pl-2'>
