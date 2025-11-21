@@ -6,7 +6,7 @@ import { BreweryIcon, DistanceIcon } from '../icons';
 const BeerDetail: React.FunctionComponent<Beer> = (beer) => {
     return (
         <>
-            <BeerImage image={beer.imagecard || ''} />
+            <BeerImage image={beer.image_card_path || ''} />
             <div className='flex flex-col grow py-4 lg:py-16'>
                 <h1 className='font-title font-bold text-4xl text-dark-green'>{beer.name}</h1>
                 <div className='flex justify-between items-center pr-2'>

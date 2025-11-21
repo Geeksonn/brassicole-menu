@@ -3,7 +3,7 @@ import BeerInfoPill from './beerInfoPill';
 import Link from 'next/link';
 
 const BeerCard: React.FunctionComponent<Beer> = (beer) => {
-    const imgUrl = process.env.NEXT_PUBLIC_IMG_CDN + (beer.imagecard || '') + '/';
+    const imgUrl = `${process.env.NEXT_PUBLIC_CDN}/${beer.image_card_path}`;
 
     return (
         <Link href={`/beer/${beer.id}/`}>

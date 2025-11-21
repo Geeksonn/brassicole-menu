@@ -7,7 +7,7 @@ const BeerDetailMobile: React.FunctionComponent<Beer> = (beer) => {
     return (
         <div className='flex flex-col'>
             <div className='flex justify-evenly'>
-                <BeerImage image={beer.imagecard || ''} />
+                <BeerImage image={beer.image_card_path || ''} />
                 <div className='flex flex-col grow py-4 lg:py-16'>
                     <h1>{beer.name}</h1>
                     <div className='flex justify-between items-center pr-2'>
