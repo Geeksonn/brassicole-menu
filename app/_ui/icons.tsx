@@ -156,7 +156,7 @@ export const DistanceIcon: React.FC = () => {
     );
 };
 
-export const LeftArrowIcon: React.FunctionComponent = () => {
+export const LeftArrowIcon: React.FC = () => {
     return (
         <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
@@ -167,13 +167,61 @@ export const LeftArrowIcon: React.FunctionComponent = () => {
     );
 };
 
-export const RightArrowIcon: React.FunctionComponent = () => {
+export const RightArrowIcon: React.FC = () => {
     return (
         <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
                 d='M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807613 11.9792 0.807613 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM-3.4421e-09 13.5L22 13.5L22 10.5L3.4421e-09 10.5L-3.4421e-09 13.5Z'
                 fill='white'
             />
+        </svg>
+    );
+};
+
+type ArrowIconProps = {
+    accent: string;
+    disabled: boolean;
+};
+const getStrokeColor = (accent: string, disabled: boolean) => {
+    if (disabled) return 'stroke-neutral-300';
+
+    switch (accent) {
+        case 'pink':
+            return 'stroke-pink';
+        case 'orange':
+            return 'stroke-orange';
+        case 'dark-green':
+            return 'stroke-dark-green';
+        default:
+            return 'stroke-white';
+    }
+};
+export const RoutePrevIcon: React.FC<ArrowIconProps> = ({ accent, disabled }) => {
+    const strokeColor = getStrokeColor(accent, disabled);
+
+    return (
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={4}
+            className={`w-16 h-16 mt-16 ${strokeColor}`}>
+            <path strokeLinecap='round' strokeLinejoin='round' d='M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18' />
+        </svg>
+    );
+};
+
+export const RouteNextIcon: React.FC<ArrowIconProps> = ({ accent, disabled }) => {
+    const strokeColor = getStrokeColor(accent, disabled);
+
+    return (
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={4}
+            className={`w-16 h-16 mt-16 ${strokeColor}`}>
+            <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3' />
         </svg>
     );
 };
