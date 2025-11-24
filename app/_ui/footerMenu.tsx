@@ -13,11 +13,11 @@ const FooterButton: React.FunctionComponent<FooterBtnProps> = ({ icon, text, url
     /* <Link href={url} className='flex flex-col w-1/3 cursor-pointer border-r last:border-r-0 border-dark-white'>
      */
     return (
-        <Link
-            href={url} className='flex justify-center w-1/3 border-r last:border-r-0 border-dark-white'>
+        <Link href={url} className='flex justify-center w-1/3 border-r last:border-r-0 border-dark-white'>
             <div className='flex flex-col'>
-            <Image alt='Icone du menu' src={iconFile} width='35' height='35' className='mx-auto' />
-            <p className={`pt-4 font-normal text-sm lg:text-lg ${active ? 'text-red' : ''}`}>{text}</p></div>
+                <Image alt='Icone du menu' src={iconFile} width='35' height='35' className='mx-auto' />
+                <p className={`pt-4 font-normal text-sm lg:text-lg ${active ? 'text-red' : ''}`}>{text}</p>
+            </div>
         </Link>
     );
 };
@@ -32,11 +32,18 @@ const FooterMenu: React.FunctionComponent<Props> = ({ menuActive }) => {
         { icon: 'icon_routes', text: 'Nos routes', url: '/routes', active: menuActive === 2 },
         { icon: 'icon_choice', text: 'Arbre de choix', url: '/choice', active: menuActive === 3 },
     ];
+
+    /* footer : 
+        @apply flex w-screen max-w-[1000px] h-28 z-10 py-5 mx-10 fixed bottom-5 bg-white;
+        @apply rounded-full border border-dark-white shadow-dark-white;
+    */
     return (
-        <footer>
-            {menus.map((m, i) => (
-                <FooterButton key={`menu_${i}`} {...m} />
-            ))}
+        <footer className='flex justify-start items-center w-screen max-w-[1080px] h-32 pb-5 px-10 z-10 fixed bottom-0 backdrop-blur-lg'>
+            <div className='flex w-full h-28 py-5 z-20 bg-white rounded-full border border-dark-white shadow-dark-white'>
+                {menus.map((m, i) => (
+                    <FooterButton key={`menu_${i}`} {...m} />
+                ))}
+            </div>
         </footer>
     );
 };
