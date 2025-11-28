@@ -38,7 +38,7 @@ const FooterMenu: React.FunctionComponent<Props> = ({ menuActive }) => {
         @apply rounded-full border border-dark-white shadow-dark-white;
     */
     return (
-        <footer className='flex justify-start items-center w-screen max-w-[1080px] h-32 pb-5 px-10 z-10 fixed bottom-0 backdrop-blur-lg'>
+        <footer className='flex justify-start items-center w-screen max-w-[1080px] h-32 pb-5 px-10 z-10 fixed bottom-0 bg-white bg-opacity-75 '>
             <div className='flex w-full h-28 py-5 z-20 bg-white rounded-full border border-dark-white shadow-dark-white'>
                 {menus.map((m, i) => (
                     <FooterButton key={`menu_${i}`} {...m} />
