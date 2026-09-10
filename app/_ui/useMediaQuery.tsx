@@ -1,31 +1,23 @@
 'use client';
 
-import React from 'react';
+import { useCallback, useSyncExternalStore } from 'react';
 
 const useMediaQuery = (width: number) => {
-    const [targetReached, setTargetReached] = React.useState(false);
+    const query = `(max-width: ${width}px)`;
 
-    const updateTarget = React.useCallback((e: any) => {
-        if (e.matches) {
-            setTargetReached(true);
-        } else {
-            setTargetReached(false);
-        }
-    }, []);
+    const subscribe = useCallback(
+        (callback: () => void) => {
+            const media = window.matchMedia(query);
+            media.addEventListener('change', callback);
+            return () => media.removeEventListener('change', callback);
+        },
+        [query]
+    );
 
-    React.useEffect(() => {
-        const media = window.matchMedia(`(max-width: ${width}px)`);
-        media.addEventListener('change', updateTarget);
+    const getSnapshot = () => window.matchMedia(query).matches;
+    const getServerSnapshot = () => false;
 
-        // Check on initial render (callback is called only when a change occurs)
-        if (media.matches) {
-            setTargetReached(true);
-        }
-
-        return () => media.removeEventListener('change', updateTarget);
-    }, []);
-
-    return targetReached;
+    return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 };
 
 export default useMediaQuery;

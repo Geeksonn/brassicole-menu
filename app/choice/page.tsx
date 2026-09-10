@@ -5,10 +5,10 @@ import QuestionComponent from '@/_ui/question/questionComponent';
 import { getBeers, getQuestionsNew } from '@/lib/queries';
 import { createClient } from '@/lib/supabase';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default async function MenuPage() {
-    const supabase = await createClient();
+    const supabase = createClient();
     const [questions, beers] = await Promise.all([getQuestionsNew(supabase), getBeers(supabase)]);
 
     return (

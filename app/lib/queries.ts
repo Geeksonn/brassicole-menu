@@ -15,6 +15,20 @@ export const getBeers = async (supabase: SupabaseClient): Promise<Beer[]> => {
     return beers;
 };
 
+export const getActiveBeerIds = async (supabase: SupabaseClient): Promise<string[]> => {
+    const { data, error } = await supabase
+        .from('beers')
+        .select('id, editions!inner()')
+        .eq('editions.active', true);
+
+    if (error) {
+        console.error('Error fetching active beer ids:', error);
+        return [];
+    }
+
+    return data.map((beer) => beer.id);
+};
+
 export const getBeerById = async (supabase: SupabaseClient, beerId: string): Promise<Beer> => {
     const { data: beer, error } = await supabase.from('beers').select('*').eq('id', beerId).single();
 

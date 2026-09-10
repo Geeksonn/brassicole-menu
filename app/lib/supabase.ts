@@ -1,24 +1,19 @@
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { Database } from './database.types';
 
-export async function createClient() {
-    const cookieStore = await cookies();
-
-    return createServerClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, {
-        cookies: {
-            getAll() {
-                return cookieStore.getAll();
-            },
-            setAll(cookiesToSet) {
-                try {
-                    cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
-                } catch {
-                    // The `setAll` method was called from a Server Component.
-                    // This can be ignored if you have middleware refreshing
-                    // user sessions.
-                }
-            },
-        },
-    });
+/**
+ * Supabase client used for build-time data fetching.
+ *
+ * Every page reads its data through this client while the site is being built
+ * (the page files opt into static rendering with `export const dynamic = 'force-static'`).
+ * The results are baked into the static output and are NOT refreshed until the
+ * next build / deploy.
+ *
+ * There is no auth in this app, so no cookie/session handling is needed here.
+ */
+export function createClient() {
+    return createSupabaseClient<Database>(
+        process.env.SUPABASE_URL!,
+        process.env.SUPABASE_PUBLISHABLE_KEY!
+    );
 }
