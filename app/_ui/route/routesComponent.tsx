@@ -16,7 +16,7 @@ const RoutesComponent: React.FC<Props> = ({ routes, routeBeers, beers }) => {
     const ACCENTS = [ACCENT_PINK, ACCENT_ORANGE, ACCENT_GREEN];
     const [routeDisplayed, setRouteDisplayed] = React.useState<number>(0);
 
-    if (!routes || RoutesComponent.length <= 0 || !beers || beers.length <= 0) {
+    if (!routes || routes.length <= 0 || !beers || beers.length <= 0) {
         return <p>Aucune donnée</p>;
     }
 

@@ -6,10 +6,10 @@ import { getBeers } from './lib/queries';
 import { createClient } from './lib/supabase';
 import { Beer } from './types';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default async function MenuPage() {
-    const supabase = await createClient();
+    const supabase = createClient();
     const beers: Beer[] = await getBeers(supabase);
 
     return (

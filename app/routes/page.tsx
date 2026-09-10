@@ -6,10 +6,10 @@ import RoutesComponent from '@/_ui/route/routesComponent';
 import { getBeers, getRoutes } from '@/lib/queries';
 import { createClient } from '@/lib/supabase';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default async function RoutePage() {
-    const supabase = await createClient();
+    const supabase = createClient();
     const [routesWithBeers, beers] = await Promise.all([getRoutes(supabase), getBeers(supabase)]);
     const { routes, routeBeers } = routesWithBeers;
 
