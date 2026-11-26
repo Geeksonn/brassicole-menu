@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Borne : écran monté en portrait, macOS laissé en paysage (le tactile n'y suit pas la
+   rotation système). La page est pivotée ici et défile dans .kiosk-scroller.
+   Activé par ?rot=-90 ou ?rot=90 (mémorisé), ?rot=0 pour revenir à la normale. */
+html[data-rot] {
+    overflow: hidden;
+}
+
+html[data-rot] body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vh;
+    height: 100vw;
+    max-width: none;
+    overflow: hidden;
+    transform-origin: top left;
+}
+
+html[data-rot='90'] body {
+    transform: rotate(90deg) translateY(-100%);
+}
+
+html[data-rot='-90'] body {
+    transform: rotate(-90deg) translateX(-100%);
+}
+
+html[data-rot] .kiosk-scroller {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+}
+
 html,
 body {
     @apply m-auto w-screen max-w-[1080px] p-0 my-0 bg-beige select-none;
