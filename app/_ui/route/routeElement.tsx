@@ -20,7 +20,7 @@ const RouteElement: React.FunctionComponent<Props> = ({ accent, last, first, bee
                 <i>{ellips}</i>
                 {last ? null : <i>{line}</i>}
             </div>
-            <BeerCard {...beer} />
+            <BeerCard {...beer} from='routes' />
         </div>
     );
 };

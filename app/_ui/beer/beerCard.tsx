@@ -1,12 +1,15 @@
 import { Beer } from '@/types';
 import BeerInfoPill from './beerInfoPill';
 import Link from 'next/link';
+import { BeerOrigin } from './beerDetailBackButton';
 
-const BeerCard: React.FunctionComponent<Beer> = (beer) => {
+type Props = Beer & { from?: BeerOrigin };
+
+const BeerCard: React.FunctionComponent<Props> = ({ from, ...beer }) => {
     const imgUrl = `${process.env.NEXT_PUBLIC_CDN}/${beer.image_card_path}`;
 
     return (
-        <Link href={`/beer/${beer.id}/`}>
+        <Link href={from && from !== 'carte' ? `/beer/${beer.id}/?from=${from}` : `/beer/${beer.id}/`}>
             <div className='flex justify-evenly w-72 h-[155px] bg-white rounded-md cursor-pointer shadow-default lg:w-[450px] lg:py-4 lg:mb-6 lg:mt-1'>
                 <div className='w-1/3 -mt-8'>
                     <img src={imgUrl} className='h-40 mx-auto' />
