@@ -63,7 +63,8 @@ export const getRoutes = async (supabase: SupabaseClient): Promise<RouteWithBeer
     const { data: routes, error } = await supabase
         .from('routes')
         .select('*, editions!inner()')
-        .eq(...EDITION_FILTER);
+        .eq(...EDITION_FILTER)
+        .order('order', { ascending: true });
 
     if (error) {
         console.error('Error fetching routes:', error);

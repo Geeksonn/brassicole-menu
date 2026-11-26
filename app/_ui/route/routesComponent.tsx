@@ -9,6 +9,7 @@ import RouteList from '@/_ui/route/routeList';
 import { RouteNextIcon, RoutePrevIcon } from '../icons';
 
 const ACCENTS = [ACCENT_PINK, ACCENT_ORANGE, ACCENT_GREEN];
+const ROUTE_NAMES = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 type Props = {
     routes: Route[];
@@ -52,7 +53,7 @@ export const RoutesView: React.FC<Props & { routeDisplayed: number }> = ({
             )}
             <RouteList
                 accent={accent}
-                routeNr={`0${routeDisplayed + 1}`}
+                routeNr={ROUTE_NAMES[routeDisplayed]}
                 route={routes[routeDisplayed]}
                 routeBeers={routeBeers.filter((r) => r.route === routes[routeDisplayed].id)}
                 beers={beers}
