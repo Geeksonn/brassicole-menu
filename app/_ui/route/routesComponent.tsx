@@ -14,6 +14,7 @@ type Props = {
 
 const RoutesComponent: React.FC<Props> = ({ routes, routeBeers, beers }) => {
     const ACCENTS = [ACCENT_PINK, ACCENT_ORANGE, ACCENT_GREEN];
+    const routeNames = ['A', 'B', 'C', 'D', 'E', 'F'];
     const [routeDisplayed, setRouteDisplayed] = React.useState<number>(0);
 
     if (!routes || routes.length <= 0 || !beers || beers.length <= 0) {
@@ -40,7 +41,7 @@ const RoutesComponent: React.FC<Props> = ({ routes, routeBeers, beers }) => {
             </div>
             <RouteList
                 accent={ACCENTS[routeDisplayed]}
-                routeNr={`0${routeDisplayed + 1}`}
+                routeNr={routeNames[routeDisplayed]}
                 route={routes[routeDisplayed]}
                 routeBeers={routeBeers.filter((r) => r.route === routes[routeDisplayed].id)}
                 beers={beers}

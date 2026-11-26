@@ -16,10 +16,7 @@ export const getBeers = async (supabase: SupabaseClient): Promise<Beer[]> => {
 };
 
 export const getActiveBeerIds = async (supabase: SupabaseClient): Promise<string[]> => {
-    const { data, error } = await supabase
-        .from('beers')
-        .select('id, editions!inner()')
-        .eq('editions.active', true);
+    const { data, error } = await supabase.from('beers').select('id, editions!inner()').eq('editions.active', true);
 
     if (error) {
         console.error('Error fetching active beer ids:', error);
@@ -44,7 +41,8 @@ export const getRoutes = async (supabase: SupabaseClient): Promise<RouteWithBeer
     const { data: routes, error } = await supabase
         .from('routes')
         .select('*, editions!inner()')
-        .eq('editions.active', true);
+        .eq('editions.active', true)
+        .order('order', { ascending: true });
 
     if (error) {
         console.error('Error fetching routes:', error);
@@ -67,7 +65,7 @@ export const getQuestionsNew = async (supabase: SupabaseClient): Promise<Questio
         .select(
             `id, qid, question, 
             editions!inner(),
-            options!options_question_fkey (id, option, next_question, selected_beer, selected_beer_id)`
+            options!options_question_fkey (id, option, next_question, selected_beer, selected_beer_id)`,
         )
         .eq('editions.active', true)
         .order('qid', { ascending: true });
