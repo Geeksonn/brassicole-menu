@@ -1,9 +1,18 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { LeftArrowIcon } from '../icons';
 
-const BeerDetailBackButton: React.FunctionComponent = () => {
+/** Where the visitor opened the beer from, passed as `?from=` by `BeerCard`. */
+export type BeerOrigin = 'carte' | 'routes';
+
+const LABELS: Record<BeerOrigin, string> = {
+    carte: 'Retour à la carte',
+    routes: 'Retour à la route',
+};
+
+/** Back button with a label matching the page the visitor came from. */
+export const BeerDetailBackButtonView: React.FunctionComponent<{ origin: BeerOrigin }> = ({ origin }) => {
     const router = useRouter();
 
     return (
@@ -13,9 +22,17 @@ const BeerDetailBackButton: React.FunctionComponent = () => {
             <i className='mr-7'>
                 <LeftArrowIcon />
             </i>
-            <p>Retour à la carte</p>
+            <p>{LABELS[origin]}</p>
         </div>
     );
+};
+
+/** Reads the origin from `?from=`; anything else falls back to the menu ("la carte"). */
+const BeerDetailBackButton: React.FunctionComponent = () => {
+    const searchParams = useSearchParams();
+    const origin: BeerOrigin = searchParams.get('from') === 'routes' ? 'routes' : 'carte';
+
+    return <BeerDetailBackButtonView origin={origin} />;
 };
 
 export default BeerDetailBackButton;

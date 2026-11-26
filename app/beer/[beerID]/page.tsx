@@ -1,4 +1,5 @@
-import BeerDetailBackButton from '@/_ui/beer/beerDetailBackButton';
+import { Suspense } from 'react';
+import BeerDetailBackButton, { BeerDetailBackButtonView } from '@/_ui/beer/beerDetailBackButton';
 import BeerLayout from '@/_ui/beer/beerLayout';
 import FooterMenu from '@/_ui/footerMenu';
 import Header from '@/_ui/header';
@@ -26,7 +27,11 @@ export default async function BeerPage(props: { params: Promise<{ beerID: string
         <PageWrapper>
             <Header title='Détail de la bière' />
             <div className='flex flex-col mx-4'>
-                <BeerDetailBackButton />
+                {/* The page is static: `?from=` is only read client-side. Until then the
+                    prerendered HTML shows the default label. */}
+                <Suspense fallback={<BeerDetailBackButtonView origin='carte' />}>
+                    <BeerDetailBackButton />
+                </Suspense>
                 {beer !== undefined && <BeerLayout beer={beer} />}
             </div>
             <FooterMenu menuActive={1} />
